@@ -186,9 +186,14 @@ bar {
 bindsym $mod+shift+x exec ~/.config/i3/lock.sh -p 10
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
+
+# change sound output device
+bindsym $mod+i exec ~/.config/i3/sound-output.sh 1 # build in speakers
+bindsym $mod+o exec ~/.config/i3/sound-output.sh 2 # bluetooth speakers
+bindsym $mod+p exec ~/.config/i3/sound-output.sh 0 # hdmi
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
