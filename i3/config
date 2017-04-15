@@ -214,6 +214,9 @@ exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
 # sending signal to i3blocks
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release XF86AudioRaiseVolume  exec pkill -SIGRTMIN+10 i3blocks
+bindsym --release XF86AudioLowerVolume  exec pkill -SIGRTMIN+10 i3blocks
+bindsym --release XF86AudioMute  exec pkill -SIGRTMIN+10 i3blocks
 
 # open some apps on start
 exec chromium
