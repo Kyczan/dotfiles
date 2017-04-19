@@ -16,3 +16,4 @@ To run properly i3 based on this configuration you have to install following pro
 * playerctl (also for audio control)
 * xbacklight (for brightness control)
 * compton (for nice transitions)
+* acpi (for getting battery info)
