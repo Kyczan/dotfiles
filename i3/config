@@ -31,6 +31,7 @@ floating_modifier $mod
 
 # thin borders
 hide_edge_borders both
+#new_window none
 
 # start a terminal
 bindsym $mod+Return exec gnome-terminal
@@ -183,7 +184,8 @@ bar {
 	position top
 }
 
-bindsym $mod+shift+x exec ~/.config/i3/lock.sh -p 10
+#bindsym $mod+shift+x exec ~/.config/i3/lock.sh -p 10
+bindsym $mod+shift+x exec ~/.config/i3/lock-blur.sh
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
@@ -218,7 +220,11 @@ bindsym --release XF86AudioRaiseVolume  exec pkill -SIGRTMIN+10 i3blocks
 bindsym --release XF86AudioLowerVolume  exec pkill -SIGRTMIN+10 i3blocks
 bindsym --release XF86AudioMute  exec pkill -SIGRTMIN+10 i3blocks
 
+# save screenshot
+bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
+
 # open some apps on start
 exec chromium
+exec_always nm-applet # run network applet
 exec_always compton -f
 
