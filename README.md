@@ -17,3 +17,4 @@ To run properly i3 based on this configuration you have to install following pro
 * xbacklight (for brightness control)
 * compton (for nice transitions)
 * acpi (for getting battery info)
+* scrot (for making screenshots)
