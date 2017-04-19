@@ -6,7 +6,7 @@ To run properly i3 based on this configuration you have to install following pro
 * rofi (for searching and launching apps)
 * i3blocks (for bar with custom informations)
 * i3lock (for locking screen)
-* feh (for setting wallpaper)
+* feh (for setting wallpaper; put wallpaper to `~/Pistures/wallpaper.jpg`)
 * font System San Francisco Display (move it to `~/.fonts` folder)
 * Font Awesome (for icons; move it to `~/.fonts` folder)
 * Paper System Theme
@@ -15,4 +15,4 @@ To run properly i3 based on this configuration you have to install following pro
 * pulseaudio (for audio control)
 * playerctl (also for audio control)
 * xbacklight (for brightness control)
-* compton (for nice transcients)
+* compton (for nice transitions)
