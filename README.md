@@ -14,7 +14,7 @@ To run properly i3 based on this configuration you have to install following pro
 * gnome-terminal
 * pulseaudio (for audio control)
 * playerctl (also for audio control)
-* xbacklight (for brightness control)
+* imagemagick (for converting images to set them as lock screen)
 * compton (for nice transitions)
 * acpi (for getting battery info)
 * scrot (for making screenshots)
