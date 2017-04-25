@@ -10,7 +10,7 @@ To run properly i3 based on this configuration you have to install following pro
 * font System San Francisco Display (move it to `~/.fonts` folder)
 * Font Awesome (for icons; move it to `~/.fonts` folder)
 * Paper System Theme
-* lxapperance (for changing system font and theme; change font in `~/.gtkrc-2.0` and in `~/.config/gtk-3.0/settings.ini`)
+* lxappearance (for changing system font and theme; change font in `~/.gtkrc-2.0` and in `~/.config/gtk-3.0/settings.ini`)
 * gnome-terminal
 * pulseaudio (for audio control)
 * playerctl (also for audio control)
@@ -18,3 +18,9 @@ To run properly i3 based on this configuration you have to install following pro
 * compton (for nice transitions)
 * acpi (for getting battery info)
 * scrot (for making screenshots)
+
+It is worth to male symlink from repo to i3 config folder (assuming that i3 config is in `~/.config/i3`):
+```
+rm -rf ~/.config/i3
+ln -s ~/path/to/repo/i3 ~/.config
+```
