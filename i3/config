@@ -231,3 +231,4 @@ exec setxkbmap -layout us -option caps:escape # caps lock works as escape
 exec synclient VertScrollDelta=-114 # enable natural vertical scroling
 exec synclient HorizScrollDelta=-114 # enable natural horizontal scroling
 exec setxkbmap -layout pl # set polish keyboard
+exec xss-lock -- ~/.config/i3/scripts/lock-pixel.sh -p 10 &
