@@ -227,4 +227,7 @@ bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/scre
 exec chromium
 exec_always nm-applet # run network applet
 exec_always compton -f
+exec setxkbmap -layout us -option caps:escape # caps lock works as escape
+exec synclient VertScrollDelta=-114 # enable natural vertical scroling
+exec synclient HorizScrollDelta=-114 # enable natural horizontal scroling
 
