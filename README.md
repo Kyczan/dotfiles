@@ -8,7 +8,7 @@ To run properly i3 based on this configuration you have to install following pro
 * i3lock (for locking screen)
 * feh (for setting wallpaper; put wallpaper to `~/Pictures/wallpaper.jpg`)
 * font System San Francisco Display (move it to `~/.fonts` folder)
-* Font Awesome (for icons; move it to `~/.fonts` folder)
+* ttf-font-awesome (AUR; font with nice icons)
 * Paper System Theme
 * lxappearance (for changing system font and theme; change font in `~/.gtkrc-2.0` and in `~/.config/gtk-3.0/settings.ini`)
 * gnome-terminal
@@ -18,6 +18,7 @@ To run properly i3 based on this configuration you have to install following pro
 * compton (for nice transitions)
 * acpi (for getting battery info)
 * scrot (for making screenshots)
+* xss-lock-git (AUR; for locking screen after suspend. To suspend after closing lid, go to `/etc/systemd/logind.conf`, uncomment `HandleLidSwitch=suspend`)
 
 It is worth to male symlink from repo to i3 config folder (assuming that i3 config is in `~/.config/i3`):
 ```
