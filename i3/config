@@ -226,9 +226,8 @@ bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/scre
 # open some apps on start
 exec chromium
 exec_always nm-applet # run network applet
-exec_always compton -f
-exec setxkbmap -layout us -option caps:escape # caps lock works as escape
+exec_always compton -f # for nice transitions
+exec setxkbmap -layout pl -option caps:escape # caps lock works as escape
 exec synclient VertScrollDelta=-114 # enable natural vertical scroling
 exec synclient HorizScrollDelta=-114 # enable natural horizontal scroling
-exec setxkbmap -layout pl # set polish keyboard
-exec xss-lock -- ~/.config/i3/scripts/lock-pixel.sh -p 10 &
+exec xss-lock -- ~/.config/i3/scripts/lock-pixel.sh -p 10 & # lock screen after suspend
