@@ -1,3 +1,4 @@
+# git aliases
 alias gs="git status "
 alias ga="git add --all "
 alias gc="git commit -a "
@@ -6,3 +7,6 @@ alias gpl="git pull"
 alias gf="git fetch"
 alias gp="git push"
 
+# others
+alias v="vim "
+alias cl="clear"
