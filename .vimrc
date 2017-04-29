@@ -1,6 +1,11 @@
 let mapleader=","       " leader is comma
 
+" enable pathogen
+call pathogen#infect()
+call pathogen#helptags()
+
 syntax enable           " enable syntax processing
+color dracula
 
 " tabs & spaces
 set tabstop=2           " number of visual spaces per TAB
