@@ -23,5 +23,14 @@ To run properly i3 based on this configuration you have to install following pro
 It is worth to male symlink from repo to i3 config folder (assuming that i3 config is in `~/.config/i3`):
 ```
 rm -rf ~/.config/i3
-ln -s ~/path/to/repo/i3 ~/.config
+ln -s ~/path/to/repo/dotfiles/i3 ~/.config
+```
+## aliases
+To get to work `.aliases` create symlink:
+```
+ln -s ~/path/to/repo/dotfiles/.aliases ~/
+```
+Next, add in `.zshrc` following line:
+```
+source $HOME/.aliases
 ```
