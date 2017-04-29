@@ -43,3 +43,6 @@ Create symlink:
 ```
 ln -s ~/path/to/repo/dotfiles/.vimrc ~/
 ```
+Install [pathogen](https://github.com/tpope/vim-pathogen) for plugins management.
+Now you can install [dracula theme](https://draculatheme.com/vim/) and [CtrlP](https://github.com/kien/ctrlp.vim)
+
