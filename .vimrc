@@ -1,7 +1,6 @@
+let mapleader=","       " leader is comma
+
 syntax enable           " enable syntax processing
-" colorscheme molokai
-" let g:molokai_original = 1
-" let g:rehash256 = 1
 
 " tabs & spaces
 set tabstop=2           " number of visual spaces per TAB
@@ -21,7 +20,6 @@ set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
-let mapleader=","       " leader is comma
 
 " ctrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
