@@ -34,3 +34,7 @@ Next, add in `.zshrc` following line:
 ```
 source $HOME/.aliases
 ```
+Then reload `.zshrc`:
+```
+source ~/.zshrc
+```
