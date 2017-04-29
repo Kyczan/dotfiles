@@ -25,7 +25,7 @@ It is worth to male symlink from repo to i3 config folder (assuming that i3 conf
 rm -rf ~/.config/i3
 ln -s ~/path/to/repo/dotfiles/i3 ~/.config
 ```
-## aliases
+## .aliases
 To get to work `.aliases` create symlink:
 ```
 ln -s ~/path/to/repo/dotfiles/.aliases ~/
@@ -37,4 +37,9 @@ source $HOME/.aliases
 Then reload `.zshrc`:
 ```
 source ~/.zshrc
+```
+## .vimrc
+Create symlink:
+```
+ln -s ~/path/to/repo/dotfiles/.vimrc ~/
 ```
