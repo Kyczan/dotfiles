@@ -31,7 +31,9 @@ floating_modifier $mod
 
 # thin borders
 hide_edge_borders both
-#new_window none
+
+# lock screen after suspend
+exec xss-lock -- ~/.config/i3/scripts/lock-pixel.sh -p 10 & 
 
 # start a terminal
 bindsym $mod+Return exec gnome-terminal
@@ -230,4 +232,3 @@ exec_always compton -f # for nice transitions
 exec setxkbmap -layout pl -option caps:escape # caps lock works as escape
 exec synclient VertScrollDelta=-114 # enable natural vertical scroling
 exec synclient HorizScrollDelta=-114 # enable natural horizontal scroling
-exec xss-lock -- ~/.config/i3/scripts/lock-pixel.sh -p 10 & # lock screen after suspend
