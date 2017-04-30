@@ -11,7 +11,8 @@ To run properly i3 based on this configuration you have to install following pro
 * ttf-font-awesome (AUR; font with nice icons)
 * Paper System Theme
 * lxappearance (for changing system font and theme; change font in `~/.gtkrc-2.0` and in `~/.config/gtk-3.0/settings.ini`)
-* gnome-terminal
+* gnome-terminal (select theme solarized-dark and change background to `#282a36`)
+* zsh (in `~/.zshrc` set `ZSH_THEME="bira"`)
 * pulseaudio (for audio control)
 * playerctl (also for audio control)
 * imagemagick (for converting images to set them as lock screen)
