@@ -209,6 +209,9 @@ bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# toggle touchpad
+bindsym XF86TouchpadToggle exec ~/.config/i3/scripts/touchpad-toggle.sh
+
 # start app menu
 bindsym $mod+d exec rofi -show run -config ~/.config/i3/rofi.conf
 
