@@ -36,7 +36,7 @@ hide_edge_borders both
 exec xss-lock -- ~/.config/i3/scripts/lock-pixel.sh -p 10 & 
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec --no-startup-id gnome-terminal
 
 # kill focused window
 bindsym $mod+q kill
@@ -186,7 +186,7 @@ bar {
 	position top
 }
 
-bindsym $mod+shift+x exec ~/.config/i3/scripts/lock-pixel.sh -p 10
+bindsym $mod+shift+x exec --no-startup-id ~/.config/i3/scripts/lock-pixel.sh -p 10
 #bindsym $mod+shift+x exec ~/.config/i3/scripts/lock-blur.sh
 
 # Pulse Audio controls
@@ -195,43 +195,43 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 # change sound output device
-bindsym $mod+i exec ~/.config/i3/scripts/sound-output.sh 1; exec pkill -SIGRTMIN+10 i3blocks # build in speakers
-bindsym $mod+o exec ~/.config/i3/scripts/sound-output.sh 2; exec pkill -SIGRTMIN+10 i3blocks # bluetooth speakers
-bindsym $mod+p exec ~/.config/i3/scripts/sound-output.sh 0; exec pkill -SIGRTMIN+10 i3blocks # hdmi
+bindsym $mod+i exec --no-startup-id ~/.config/i3/scripts/sound-output.sh 1; exec pkill -SIGRTMIN+10 i3blocks # build in speakers
+bindsym $mod+o exec --no-startup-id ~/.config/i3/scripts/sound-output.sh 2; exec pkill -SIGRTMIN+10 i3blocks # bluetooth speakers
+bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/sound-output.sh 0; exec pkill -SIGRTMIN+10 i3blocks # hdmi
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # toggle touchpad
-bindsym XF86TouchpadToggle exec ~/.config/i3/scripts/touchpad-toggle.sh
+bindsym XF86TouchpadToggle exec --no-startup-id ~/.config/i3/scripts/touchpad-toggle.sh
 
 # start app menu
-bindsym $mod+d exec rofi -show run -config ~/.config/i3/rofi.conf
+bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.config/i3/rofi.conf
 
 # set wallpaper
-exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 
 # sending signal to i3blocks
-bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
-bindsym --release XF86AudioRaiseVolume  exec pkill -SIGRTMIN+10 i3blocks
-bindsym --release XF86AudioLowerVolume  exec pkill -SIGRTMIN+10 i3blocks
-bindsym --release XF86AudioMute  exec pkill -SIGRTMIN+10 i3blocks
+bindsym --release Caps_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
+bindsym --release Num_Lock  exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
+bindsym --release XF86AudioRaiseVolume exec --no-startup-id pkill -SIGRTMIN+10 i3blocks
+bindsym --release XF86AudioLowerVolume  exec --no-startup-id pkill -SIGRTMIN+10 i3blocks
+bindsym --release XF86AudioMute  exec --no-startup-id pkill -SIGRTMIN+10 i3blocks
 
 # save screenshot
-bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
+bindsym Print exec --no-startup-id scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
 
 # open some apps on start
-exec chromium
-exec_always nm-applet # run network applet
-exec_always compton -f # for nice transitions
-exec setxkbmap -layout pl -option caps:escape # caps lock works as escape
-exec synclient VertScrollDelta=-114 # enable natural vertical scroling
-exec synclient HorizScrollDelta=-114 # enable natural horizontal scroling
+exec --no-startup-id chromium
+exec_always --no-startup-id nm-applet # run network applet
+exec_always --no-startup-id compton -f # for nice transitions
+exec --no-startup-id setxkbmap -layout pl -option caps:escape # caps lock works as escape
+exec --no-startup-id synclient VertScrollDelta=-114 # enable natural vertical scroling
+exec --no-startup-id synclient HorizScrollDelta=-114 # enable natural horizontal scroling
