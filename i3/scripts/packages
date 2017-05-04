@@ -4,6 +4,10 @@ URGENT_VALUE=25
 #PACKAGE_COUNT=$(pacman -Qu | wc -l)
 PACKAGE_COUNT=$(/usr/bin/checkupdates | wc -l)
 
+case $BLOCK_BUTTON in
+  1)  gnome-terminal -e 'sh -c  \"sudo pacman -Syu ; echo Done - Press enter to exit; read\" '  # update on left click
+esac
+
 if [[ "${PACKAGE_COUNT}" -gt 0 ]]; then
   echo "${PACKAGE_COUNT}" # full-text
   echo "${PACKAGE_COUNT}" # short-text
