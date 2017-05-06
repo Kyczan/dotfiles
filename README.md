@@ -3,6 +3,7 @@ my configuration dotfiles
 
 ## i3
 To run properly i3 based on this configuration you have to install following programs:
+* `yaourt` ([installation instructions](https://www.ostechnix.com/install-yaourt-arch-linux/); for installing AUR packages)
 * `rofi` (for searching and launching apps)
 * `i3blocks` (for bar with custom informations)
 * `i3lock` (for locking screen)
