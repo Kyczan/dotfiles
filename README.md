@@ -24,7 +24,11 @@ To run properly i3 based on this configuration you have to install following pro
 * `xss-lock-git` (AUR; for locking screen after suspend. To suspend after closing lid, go to `/etc/systemd/logind.conf`, uncomment `HandleLidSwitch=suspend`)
 * `chromium`
 * `visual-studio-code` (AUR; nice editor for programmers)
-* `spotify` (AUR)
+* `spotify` (AUR), before installing add following gpg keys:
+```
+gpg --recv-keys --keyserver hkp://pgp.mit.edu D9C4D26D0E604491
+gpg --recv-keys 5CC908FDB71E12C2
+```
 
 It is worth to male symlink from repo to i3 config folder (assuming that i3 config is in `~/.config/i3`):
 ```
