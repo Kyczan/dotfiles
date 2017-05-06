@@ -12,13 +12,14 @@ To run properly i3 based on this configuration you have to install following pro
 * `paper-gtk-theme-git`, `paper-icon-theme-git` (AUR; Paper System Theme - nice theme)
 * `lxappearance` (for changing system font and theme; change font in `~/.gtkrc-2.0` and in `~/.config/gtk-3.0/settings.ini`)
 * `gnome-terminal` (select theme solarized-dark and change background to `#282a36`)
-* `zsh` (in `~/.zshrc` set `ZSH_THEME="bira"`)
+* `zsh`
+* `oh-my-zsh` ([installation instructions](https://github.com/robbyrussell/oh-my-zsh); in `~/.zshrc` set `ZSH_THEME="bira"`)
 * `pulseaudio` (for audio control)
 * `playerctl` (also for audio control)
 * `imagemagick` (AUR; for converting images to set them as lock screen)
 * `compton` (for nice transitions)
 * `acpi` (for getting battery info)
-* `scrot` (for making screenshots)
+* `scrot` (for making screenshots; also create directory `~/Pictures/screenshots`)
 * `xss-lock-git` (AUR; for locking screen after suspend. To suspend after closing lid, go to `/etc/systemd/logind.conf`, uncomment `HandleLidSwitch=suspend`)
 
 It is worth to male symlink from repo to i3 config folder (assuming that i3 config is in `~/.config/i3`):
