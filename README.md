@@ -7,7 +7,7 @@ To run properly i3 based on this configuration you have to install following pro
 * i3blocks (for bar with custom informations)
 * i3lock (for locking screen)
 * feh (for setting wallpaper; put wallpaper to `~/Pictures/wallpaper.jpg`)
-* font System San Francisco Display (move it to `~/.fonts` folder)
+* system-san-francisco-font-git (AUR)
 * ttf-font-awesome (AUR; font with nice icons)
 * Paper System Theme
 * lxappearance (for changing system font and theme; change font in `~/.gtkrc-2.0` and in `~/.config/gtk-3.0/settings.ini`)
@@ -15,7 +15,7 @@ To run properly i3 based on this configuration you have to install following pro
 * zsh (in `~/.zshrc` set `ZSH_THEME="bira"`)
 * pulseaudio (for audio control)
 * playerctl (also for audio control)
-* imagemagick (for converting images to set them as lock screen)
+* imagemagick (AUR; for converting images to set them as lock screen)
 * compton (for nice transitions)
 * acpi (for getting battery info)
 * scrot (for making screenshots)
