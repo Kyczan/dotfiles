@@ -237,3 +237,4 @@ exec_always --no-startup-id compton -f # for nice transitions
 exec --no-startup-id setxkbmap -layout pl -option caps:escape # caps lock works as escape
 exec --no-startup-id synclient VertScrollDelta=-114 # enable natural vertical scroling
 exec --no-startup-id synclient HorizScrollDelta=-114 # enable natural horizontal scroling
+exec_always --no-startup-id numlockx on; exec_always --no-startup-id pkill -SIGRTMIN+11 i3blocks # turn on numlock and send signal to i3blocks
