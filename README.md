@@ -22,6 +22,7 @@ To run properly i3 based on this configuration you have to install following pro
 * `acpi` (for getting battery info)
 * `scrot` (for making screenshots; also create directory `~/Pictures/screenshots`)
 * `xss-lock-git` (AUR; for locking screen after suspend. To suspend after closing lid, go to `/etc/systemd/logind.conf`, uncomment `HandleLidSwitch=suspend`)
+* `numlockx` (for turning on numlock on start)
 * `chromium`
 * `visual-studio-code` (AUR; nice editor for programmers)
 * `spotify` (AUR), before installing add following gpg keys:
