@@ -7,7 +7,7 @@ To run properly i3 based on this configuration you have to install following pro
 * `i3blocks` (for bar with custom informations)
 * `i3lock` (for locking screen)
 * `feh` (for setting wallpaper; put wallpaper to `~/Pictures/wallpaper.jpg`)
-* `system-san-francisco-font-git` (AUR; system font)
+* `system-san-francisco-font-git`, `ttf-ms-fonts` (AUR; system font)
 * `ttf-font-awesome` (AUR; font with nice icons)
 * `paper-gtk-theme-git`, `paper-icon-theme-git` (AUR; Paper System Theme - nice theme)
 * `lxappearance` (for changing system font and theme; change font in `~/.gtkrc-2.0` and in `~/.config/gtk-3.0/settings.ini`)
