@@ -1,5 +1,6 @@
 # dotfiles
 my configuration dotfiles
+
 `install.sh` installs below applications and do some configuration. Use it without any warranty!
 
 ## i3
