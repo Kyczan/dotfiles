@@ -1,7 +1,7 @@
 # dotfiles
 my configuration dotfiles
 
-`install.sh` installs below applications and do some configuration. Use it without any warranty!
+`install.sh` installs below applications and does some configuration. Use it without any warranty!
 
 ## i3
 To run properly i3 based on this configuration you have to install following programs:
