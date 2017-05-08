@@ -37,6 +37,8 @@ ln -s $DOTS/i3 ~/.config
 
 # symlink aliases
 ln -s $DOTS/.aliases ~/
+echo "source $HOME/.aliases" >> ~/.zshrc
+source ~/.zshrc
 
 # symlink vimrc
 ln -s $DOTS/.vimrc ~/
