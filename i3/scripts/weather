@@ -21,7 +21,7 @@ my $cloud = "";
 binmode(STDOUT, ":utf8");
 print "$cloud";
 }
-if( $values[0] eq "Showers" || $values[0] eq "Mostly Cloudy w/ Showers" || $values[0] eq "Partly Sunny w/ Showers" || $values[0] eq "T-Storms"|| $values[0] eq "Mostly Cloudy w/ T-Storms"|| $values[0] eq "Partly Sunny w/ T-Storms"|| $values[0] eq "Rain")
+if( $values[0] eq "Showers" || $values[0] eq "Mostly Cloudy W/ Showers" || $values[0] eq "Mostly Cloudy w/ Showers" || $values[0] eq "Partly Sunny w/ Showers" || $values[0] eq "T-Storms"|| $values[0] eq "Mostly Cloudy w/ T-Storms"|| $values[0] eq "Partly Sunny w/ T-Storms"|| $values[0] eq "Rain")
 {
 my $rain = "";
 binmode(STDOUT, ":utf8");
