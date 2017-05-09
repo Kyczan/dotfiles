@@ -56,5 +56,17 @@ git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 # install NERDTree
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 
+# install dracula theme for gnome terminal
+cd ~/Projects
+git clone https://github.com/GalaticStryder/gnome-terminal-colors-dracula
+cd gnome-terminal-colors-dracula
+./install.sh
+
+# install zsh syntax highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# need to activate plugin in ~/.zshrc
+# plugins=( [plugins...] zsh-syntax-highlighting)
+# source ~/.zshrc
+
 echo "Done-Press enter"
 read
