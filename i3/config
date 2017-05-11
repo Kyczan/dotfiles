@@ -33,7 +33,7 @@ floating_modifier $mod
 hide_edge_borders both
 
 # lock screen after suspend
-exec xss-lock -- ~/.config/i3/scripts/lock-pixel.sh -p 10 & 
+exec --no-startup-id xss-lock -- ~/.config/i3/scripts/lock-pixel.sh -p 10 & 
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id gnome-terminal
@@ -233,6 +233,7 @@ bindsym Print exec --no-startup-id scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f
 # open some apps on start
 exec --no-startup-id chromium
 exec_always --no-startup-id nm-applet # run network applet
+exec_always --no-startup-id blueman-applet # run bluetooth applet
 exec_always --no-startup-id compton -f # for nice transitions
 exec --no-startup-id setxkbmap -layout pl -option caps:escape # caps lock works as escape
 exec --no-startup-id synclient VertScrollDelta=-114 # enable natural vertical scroling
