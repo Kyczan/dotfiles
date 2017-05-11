@@ -197,7 +197,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 # change sound output device
-bindsym $mod+i exec --no-startup-id ~/.config/i3/scripts/sound-output.sh; exec pkill -SIGRTMIN+10 i3blocks
+bindsym $mod+i exec --no-startup-id ~/.config/i3/scripts/sound-output.sh; exec --no-startup-id pkill -SIGRTMIN+10 i3blocks
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
