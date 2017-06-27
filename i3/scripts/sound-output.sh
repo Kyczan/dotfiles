@@ -14,3 +14,4 @@ do
   fi
 done
 
+pkill -SIGRTMIN+10 i3blocks 

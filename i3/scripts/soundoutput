@@ -1,0 +1,14 @@
+#!/bin/bash 
+
+SINK=$(pacmd list-sinks | grep -F '* index')
+DEFSINK=${SINK: -2}
+ 
+if [[ $DEFSINK == ' 0' ]]; then
+  ICO=''
+elif [[ $DEFSINK == '15' ]]; then
+  ICO=''
+else
+  ICO='♪'
+fi
+echo $ICO
+

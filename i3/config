@@ -197,7 +197,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 # change sound output device
-bindsym $mod+i exec --no-startup-id ~/.config/i3/scripts/sound-output.sh; exec --no-startup-id pkill -SIGRTMIN+10 i3blocks
+bindsym $mod+i exec --no-startup-id ~/.config/i3/scripts/sound-output.sh 
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
@@ -237,3 +237,5 @@ exec --no-startup-id setxkbmap -layout pl -option caps:escape # caps lock works 
 exec --no-startup-id synclient VertScrollDelta=-114 # enable natural vertical scroling
 exec --no-startup-id synclient HorizScrollDelta=-114 # enable natural horizontal scroling
 exec_always --no-startup-id numlockx on; exec_always --no-startup-id pkill -SIGRTMIN+11 i3blocks # turn on numlock and send signal to i3blocks
+
+exec_always --no-startup-id pkill -SIGRTMIN+10 i3blocks

@@ -39,18 +39,6 @@ SCONTROL="${BLOCK_INSTANCE:-$(amixer -D $MIXER scontrols |
 # This may be in in % or dB (eg. 5% or 3dB)
 STEP="${1:-5%}"
 
-#------------------------------------------------------------------------
-SINK=$(pacmd list-sinks | grep -F '* index')
-DEFSINK=$(echo $SINK | cut -f1 -d' ')
-
-if [[ $DEFSINK == 0 ]]; then
-  ICO=''
-elif [[ $DEFSINK == 7 ]]; then
-  ICO=''
-else
-  ICO='♪'
-fi
-#echo $SINK
 capability() { # Return "Capture" if the device is a capture device
   amixer -D $MIXER get $SCONTROL |
     sed -n "s/  Capabilities:.*cvolume.*/Capture/p"
