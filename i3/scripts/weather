@@ -11,7 +11,7 @@ fi
 
 # update on left click
 case $BLOCK_BUTTON in
-  1) gnome-terminal -e 'sh -c "curl -H \"Accept-Language: pl\" \"wttr.in/Wrocław?n\" ; echo Press enter to exit; read" '
+  1) termite -e 'sh -c "curl -H \"Accept-Language: pl\" \"wttr.in/Wrocław?n\" ; echo Press enter to exit; read" '
 esac
 
  

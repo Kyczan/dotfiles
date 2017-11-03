@@ -34,9 +34,11 @@ hide_edge_borders both
 
 # lock screen after suspend
 exec --no-startup-id xss-lock -- ~/.config/i3/scripts/lock-pixel.sh -p 10 & 
+# exec --no-startup-id xss-lock -c 303F46  
+exec --no-startup-id i3lock -c 303F46 
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id gnome-terminal
+bindsym $mod+Return exec --no-startup-id termite 
 
 # kill focused window
 bindsym $mod+q kill
