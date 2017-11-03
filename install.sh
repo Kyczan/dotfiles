@@ -35,6 +35,9 @@ yaourt -S system-san-francisco-font-git ttf-ms-fonts ttf-font-awesome paper-gtk-
 rm -rf ~/.config/i3
 ln -s $DOTS/i3 ~/.config
 
+# symlink termite config
+ln -s $DOTS/termite ~/.config
+
 # symlink aliases
 ln -s $DOTS/.aliases ~/
 echo "source $HOME/.aliases" >> ~/.zshrc

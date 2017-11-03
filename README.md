@@ -14,7 +14,7 @@ To run properly i3 based on this configuration you have to install following pro
 * `ttf-font-awesome` (AUR; font with nice icons)
 * `paper-gtk-theme-git`, `paper-icon-theme-git` (AUR; Paper System Theme - nice theme)
 * `lxappearance` (for changing system font and theme; change font in `~/.gtkrc-2.0` and in `~/.config/gtk-3.0/settings.ini`)
-* `gnome-terminal` (select theme solarized-dark and change background to `#282a36`)
+* `termite`
 * `zsh`
 * `oh-my-zsh` ([installation instructions](https://github.com/robbyrussell/oh-my-zsh); in `~/.zshrc` set `ZSH_THEME="bira"`)
 * `pulseaudio` (for audio control)
@@ -37,6 +37,10 @@ It is worth to male symlink from repo to i3 config folder (assuming that i3 conf
 ```
 rm -rf ~/.config/i3
 ln -s ~/path/to/repo/dotfiles/i3 ~/.config
+```
+## termite
+```
+ln -s ~/path/to/repo/dotfiles/termite ~/.config
 ```
 ## .aliases
 To get to work `.aliases` create symlink:
