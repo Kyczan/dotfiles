@@ -33,9 +33,10 @@ floating_modifier $mod
 hide_edge_borders both
 
 # lock screen after suspend
-exec --no-startup-id xss-lock -- ~/.config/i3/scripts/lock-pixel.sh -p 10 & 
+#exec --no-startup-id xss-lock -- ~/.config/i3/scripts/lock-pixel.sh -p 10 & 
+exec --no-startup-id xss-lock -- i3lock -c 303F46 &
 # exec --no-startup-id xss-lock -c 303F46  
-exec --no-startup-id i3lock -c 303F46 
+exec --no-startup-id i3lock -c 303F46
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id termite 
@@ -160,6 +161,23 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+set $Locker i3lock -c 303F46 && sleep 1
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (p) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym p exec --no-startup-id systemctl poweroff -i, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+p mode "$mode_system"
+
 set $bg-color 	         #303F46
 set $inactive-bg-color   #303F46
 set $text-color          #f3f4f5
@@ -218,7 +236,7 @@ bindsym XF86TouchpadToggle exec --no-startup-id ~/.config/i3/scripts/touchpad-to
 bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.config/i3/rofi.conf
 
 # set wallpaper
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.png
 
 # sending signal to i3blocks
 bindsym --release Caps_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
