@@ -29,7 +29,7 @@ gpg --recv-keys --keyserver hkp://pgp.mit.edu D9C4D26D0E604491
 gpg --recv-keys 5CC908FDB71E12C2
 
 # install AUR packages
-yaourt -S system-san-francisco-font-git ttf-ms-fonts ttf-font-awesome paper-gtk-theme-git paper-icon-theme-git imagemagick xss-lock-git visual-studio-code spotify chromium-widevine
+yaourt -S system-san-francisco-font-git ttf-ms-fonts ttf-font-awesome-4 paper-gtk-theme-git paper-icon-theme-git imagemagick xss-lock-git visual-studio-code spotify chromium-widevine
 
 # symlink i3
 rm -rf ~/.config/i3
