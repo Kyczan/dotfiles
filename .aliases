@@ -18,3 +18,5 @@ function cdl () {
 
 # others
 alias v="vim "
+alias c="code-oss "
+
