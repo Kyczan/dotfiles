@@ -1,6 +1,6 @@
 # git
-alias gs="git status "
-alias ga="git add --all "
+alias gs="echo git status; git status "
+alias ga="echo git add --all; git add --all "
 alias gc="git commit -a "
 alias gcm="git commit -am "
 alias gacm="git add --all && git commit -am "
@@ -18,5 +18,5 @@ function cdl () {
 
 # others
 alias v="vim "
-alias c="code-oss "
-
+alias p="pacman "
+alias y="yaourt "

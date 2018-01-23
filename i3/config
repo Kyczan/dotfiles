@@ -1,4 +1,4 @@
-# i3 config file
+# i3 config file (v4)
 
 # --vars--
 set $mod        Mod4

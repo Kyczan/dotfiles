@@ -1,0 +1,15 @@
+#!/bin/bash
+
+SCRIPT_FOLDER="$HOME/bin"
+SCRIPT_FILE="$SCRIPT_FOLDER/$1"
+
+if [[ -f $SCRIPT_FILE ]]; then
+  $MY_EDITOR $SCRIPT_FILE
+else
+  touch $SCRIPT_FILE
+  echo "#! /bin/bash" > $SCRIPT_FILE
+  chmod +x $SCRIPT_FILE
+  $MY_EDITOR $SCRIPT_FILE
+fi
+
+focuseditor

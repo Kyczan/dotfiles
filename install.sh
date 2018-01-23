@@ -35,6 +35,9 @@ yaourt -S system-san-francisco-font-git ttf-ms-fonts ttf-font-awesome-4 paper-gt
 rm -rf ~/.config/i3
 ln -s $DOTS/i3 ~/.config
 
+# symlink my bin
+ln -s $DOTS/bin ~/
+
 # symlink termite config
 ln -s $DOTS/termite ~/.config
 
