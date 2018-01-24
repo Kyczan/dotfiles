@@ -47,9 +47,10 @@ To get to work `.aliases` create symlink:
 ```
 ln -s ~/path/to/repo/dotfiles/.aliases ~/
 ```
-Next, add in `.zshrc` following line:
+## .zshrc
+To get to work `.zshrc` create symlink:
 ```
-source $HOME/.aliases
+ln -s ~/path/to/repo/dotfiles/.zshrc ~/
 ```
 Then reload `.zshrc`:
 ```

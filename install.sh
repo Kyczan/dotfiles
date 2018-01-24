@@ -43,8 +43,10 @@ ln -s $DOTS/termite ~/.config
 
 # symlink aliases
 ln -s $DOTS/.aliases ~/
-echo "source $HOME/.aliases" >> ~/.zshrc
-source ~/.zshrc
+
+# symlink zshrc
+rm ~/.zshrc
+ln -s $DOTS/.zshrc ~/
 
 # symlink vimrc
 ln -s $DOTS/.vimrc ~/
