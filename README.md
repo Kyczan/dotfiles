@@ -1,6 +1,15 @@
 # dotfiles
 my configuration dotfiles
 
+- [dotfiles](#dotfiles)
+    - [i3](#i3)
+        - [i3 scripts](#i3-scripts)
+            - [weather](#weather)
+    - [termite](#termite)
+    - [.aliases](#aliases)
+    - [.zshrc](#zshrc)
+    - [.vimrc](#vimrc)
+
 `install.sh` installs below applications and does some configuration. Use it without any warranty!
 
 ## i3
@@ -38,6 +47,12 @@ It is worth to male symlink from repo to i3 config folder (assuming that i3 conf
 rm -rf ~/.config/i3
 ln -s ~/path/to/repo/dotfiles/i3 ~/.config
 ```
+
+### i3 scripts
+
+#### weather
+Make account on openweathermap.org and obtain API key. Then rename `api.cfg.template` to `api.cfg` and update this file with your API key.
+
 ## termite
 ```
 ln -s ~/path/to/repo/dotfiles/termite ~/.config

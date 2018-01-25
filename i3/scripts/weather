@@ -1,7 +1,9 @@
 #!/bin/bash
 # Based on http://openweathermap.org/current
 
-API_KEY="f07f6a3af378fdddd2069df172ca10ab"
+# Get API key from cfg file
+. $HOME/.config/i3/scripts/api.cfg
+API_KEY="${OPENWEATHER_API_KEY}"
 
 # Check on http://openweathermap.org/find
 CITY_ID="${BLOCK_INSTANCE}"
@@ -28,34 +30,20 @@ WEATHER_ICON=$(echo "${WEATHER_INFO}" | grep -o -e '\"icon\":\"[a-zA-Z0-9]*' | a
 
 if [[ "${WEATHER_MAIN}" = *Snow* ]]; then
   echo "${ICON_SNOW} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo "${ICON_SNOW} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo ""
 elif [[ "${WEATHER_MAIN}" = *Rain* ]] || [[ "${WEATHER_MAIN}" = *Drizzle* ]]; then
   echo "${ICON_RAINY} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo "${ICON_RAINY} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo ""
 elif [[ "${WEATHER_MAIN}" = *Cloud* ]]; then
   echo "${ICON_CLOUDY} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo "${ICON_CLOUDY} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo ""
 elif [[ "${WEATHER_MAIN}" = *Clear* ]]; then
   if [[ "${WEATHER_ICON}" = *01n* ]]; then
     echo "${ICON_NIGHT} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-    echo "${ICON_NIGHT} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-    echo ""
   else
     echo "${ICON_SUNNY} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-    echo "${ICON_SUNNY} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-    echo ""
   fi
 elif [[ "${WEATHER_MAIN}" = *Fog* ]] || [[ "${WEATHER_MAIN}" = *Mist* ]]; then
   echo "${ICON_FOG} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo "${ICON_FOG} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo ""
 else
   echo "${WEATHER_MAIN} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo "${WEATHER_MAIN} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo ""
 fi
 
 if [[ "${WEATHER_TEMP}" -lt "${URGENT_LOWER}" ]] || [[ "${WEATHER_TEMP}" -gt "${URGENT_HIGHER}" ]]; then
