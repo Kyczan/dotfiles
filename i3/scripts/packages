@@ -1,7 +1,6 @@
 #!/usr/bin/bash
 
-URGENT_VALUE=25
-#PACKAGE_COUNT=$(pacman -Qu | wc -l)
+URGENT_VALUE=5
 PACKAGE_COUNT=$(/usr/bin/checkupdates | wc -l)
 
 # update on left click
