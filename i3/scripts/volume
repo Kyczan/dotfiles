@@ -14,12 +14,11 @@ if [[ "${status}" == "on" ]]; then
   echo "${volume}%"
   echo "${volume}%"
   echo ""
+  if [[ ${volume} -gt 100 ]]; then
+    exit 33
+  fi
 else
   echo "MUTE"
   echo "MUTE"
-  echo ""
-fi
-
-if [[ ${volume} -gt 100 ]]; then
-  exit 33
+  echo "#676E7D"
 fi
