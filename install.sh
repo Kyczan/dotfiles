@@ -48,6 +48,13 @@ ln -s $DOTS/.aliases ~/
 rm ~/.zshrc
 ln -s $DOTS/.zshrc ~/
 
+# symlink .Xresources
+rm ~/.Xresources
+ln -s $DOTS/.Xresources ~/
+
+# symlink urxvt plugin
+sudo ln -s $DOTS/urxvt/pasta /usr/lib/urxvt/perl/
+
 # symlink vimrc
 ln -s $DOTS/.vimrc ~/
 

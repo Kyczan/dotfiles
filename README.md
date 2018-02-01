@@ -5,9 +5,10 @@ my configuration dotfiles
     - [i3](#i3)
         - [i3 scripts](#i3-scripts)
             - [weather](#weather)
-    - [termite](#termite)
+    - [urxvt](#urxvt)
     - [.aliases](#aliases)
     - [.zshrc](#zshrc)
+    - [.Xresources](#xresources)
     - [.vimrc](#vimrc)
 
 `install.sh` installs below applications and does some configuration. Use it without any warranty!
@@ -23,7 +24,7 @@ To run properly i3 based on this configuration you have to install following pro
 * `ttf-font-awesome-4` (AUR; font with nice icons - use v4 - v5 breaks compatibility)
 * `paper-gtk-theme-git`, `paper-icon-theme-git` (AUR; Paper System Theme - nice theme)
 * `lxappearance` (for changing system font and theme; change font in `~/.gtkrc-2.0` and in `~/.config/gtk-3.0/settings.ini`)
-* `termite`
+* `urxvt` terminal
 * `zsh`
 * `oh-my-zsh` ([installation instructions](https://github.com/robbyrussell/oh-my-zsh); in `~/.zshrc` set `ZSH_THEME="bira"`)
 * `pulseaudio` (for audio control)
@@ -52,10 +53,10 @@ ln -s ~/path/to/repo/dotfiles/i3 ~/.config
 
 #### weather
 Make account on openweathermap.org and obtain API key. Then rename `api.cfg.template` to `api.cfg` and update this file with your API key.
-
-## termite
+## urxvt
+To get to work normal copy paste in terminal create symlink:
 ```
-ln -s ~/path/to/repo/dotfiles/termite ~/.config
+sudo ln -s $DOTS/urxvt/pasta /usr/lib/urxvt/perl/
 ```
 ## .aliases
 To get to work `.aliases` create symlink:
@@ -71,6 +72,15 @@ Then reload `.zshrc`:
 ```
 source ~/.zshrc
 ```
+## .Xresources
+To get to work `.Xresources` create symlink:
+```
+ln -s ~/path/to/repo/dotfiles/.Xresources ~/
+```
+Then reload `.Xresources`:
+```
+source ~/.Xresources
+```
 ## .vimrc
 Create symlink:
 ```
@@ -81,4 +91,3 @@ Now you can install:
 * [dracula theme](https://draculatheme.com/vim/)
 * [CtrlP](https://github.com/kien/ctrlp.vim) (for fuzzy search)
 * [NERDTree](https://github.com/scrooloose/nerdtree) (for file tree)
-

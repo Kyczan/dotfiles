@@ -1,0 +1,4 @@
+#!/bin/bash
+
+xrdb ~/.Xresources
+i3-msg restart

@@ -21,7 +21,7 @@ floating_modifier $mod
 hide_edge_borders both
 
 # start a terminal
-$super+Return $exe termite 
+$super+Return $exe urxvt 
 
 # kill focused window
 $super+q kill
@@ -114,7 +114,7 @@ $super+r mode "resize"
 # reload the configuration file
 $super+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-$super+Shift+r restart
+$super+Shift+r $exe restart-i3
 # exit i3 (logs you out of your X session)
 $super+Shift+e exec "i3-nagbar -t warning -m \
 'You pressed the exit shortcut. \
