@@ -27,7 +27,7 @@ floating_modifier $mod
 
 # thin borders
 hide_edge_borders both
-# new_window none # hides title
+new_window none # hides title
 
 # start a terminal
 $super+Return $exe urxvt 
