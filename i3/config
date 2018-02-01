@@ -12,13 +12,22 @@ set $right      Right
 set $up         Up
 set $down       Down
 
-font pango:System San Francisco Display, FontAwesome 8
+set_from_resource $fnt1 i3.fntpri System San Francisco Display
+set_from_resource $fnt2 i3.fntsec FontAwesome
+set_from_resource $fntsz i3.fntsz 8
+set_from_resource $bg i3.bgrnd #282A36
+set_from_resource $fg i3.fgrnd #FF0000
+set_from_resource $in i3.inact #676E7D
+set_from_resource $ur i3.urgen #E53935
+
+font pango:$fnt1, $fnt2 $fntsz
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # thin borders
 hide_edge_borders both
+# new_window none # hides title
 
 # start a terminal
 $super+Return $exe urxvt 
@@ -136,31 +145,25 @@ mode "$mode_system" {
 }
 $super+p mode "$mode_system"
 
-set $bg-color 	         #303F46
-set $inactive-bg-color   #303F46
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-color   #E53935
-
 # window colors
-#                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-color       $urgent-color      $text-color          #00ff00
+#                       border background text indicator
+client.focused          $bg    $bg        $fg  $bg
+client.unfocused        $bg    $bg        $in  $bg
+client.focused_inactive $bg    $bg        $in  $bg
+client.urgent           $ur    $ur        $fg  $ur
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	font pango:System San Francisco Display, FontAwesome 8
+	font pango:$fnt1, $fnt2 $fntsz
 	colors {
-		background $bg-color
+		background $bg
 	    	separator #757575
-		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $bg-color          $bg-color          $urgent-color
+		#                  border background text
+		focused_workspace  $bg    $bg        $fg
+		inactive_workspace $bg    $bg        $in
+		urgent_workspace   $bg    $bg        $ur
 	}
 
 	position top

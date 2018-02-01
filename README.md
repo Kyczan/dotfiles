@@ -6,6 +6,7 @@ my configuration dotfiles
         - [i3 scripts](#i3-scripts)
             - [weather](#weather)
     - [urxvt](#urxvt)
+    - [.xres](#xres)
     - [.aliases](#aliases)
     - [.zshrc](#zshrc)
     - [.Xresources](#xresources)
@@ -57,6 +58,11 @@ Make account on openweathermap.org and obtain API key. Then rename `api.cfg.temp
 To get to work normal copy paste in terminal create symlink:
 ```
 sudo ln -s $DOTS/urxvt/pasta /usr/lib/urxvt/perl/
+```
+## .xres
+To get to work `.xres` create symlink:
+```
+ln -s ~/path/to/repo/dotfiles/.xres ~/
 ```
 ## .aliases
 To get to work `.aliases` create symlink:

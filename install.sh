@@ -38,8 +38,8 @@ ln -s $DOTS/i3 ~/.config
 # symlink my bin
 ln -s $DOTS/bin ~/
 
-# symlink termite config
-ln -s $DOTS/termite ~/.config
+# symlink xres
+ln -s $DOTS/.xres ~/
 
 # symlink aliases
 ln -s $DOTS/.aliases ~/
