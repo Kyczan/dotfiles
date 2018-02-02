@@ -33,7 +33,7 @@ new_window none # hides title
 # gaps
 gaps inner 20
 gaps outer 0
-smart_gaps on
+# smart_gaps on
 
 # start a terminal
 $super+Return $exe urxvt 
@@ -217,7 +217,7 @@ $exe synclient VertScrollDelta=-114 # enable natural vertical scroling
 $exe synclient HorizScrollDelta=-114 # enable natural horizontal scroling
 
 # run on every config reload
-$exe_always nm-applet # run network applet
+# $exe_always nm-applet # run network applet
 $exe_always compton -f # for nice transitions
 $exe_always numlockx on
 $exe_always pkill -SIGRTMIN+11 i3blocks # turn on numlock and send signal to i3blocks
