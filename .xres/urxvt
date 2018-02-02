@@ -10,6 +10,7 @@ URxvt*url-launcher:             brws
 URxvt*saveLines:                32767
 URxvt*iso14755:                 false
 URxvt*iso14755_52:              false
+urxvt*depth:                    32 
 
 !! Urxvt plugins
 URxvt.perl-ext-common:          default,selection-to-clipboard,pasta
@@ -17,7 +18,7 @@ URxvt.keysym.Control-Shift-V:   perl:pasta:paste
 
 !! Urxvt colors
 URxvt*foreground:               fg
-URxvt*background:               bg
+URxvt*background:               [70]bg
 URxvt*cursorColor:              fg
 URxvt*cursorColor2:             bg
 URxvt*underlineColor:           ylw

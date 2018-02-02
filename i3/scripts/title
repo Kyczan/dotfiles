@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "$(xdotool getactivewindow getwindowname)"
+echo "$(xdotool getactivewindow getwindowname)"
+echo "$(getcolor i3.block.title)"

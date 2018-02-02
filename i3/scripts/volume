@@ -13,12 +13,12 @@ volume=$(echo "${statusLine}" | awk -F ' ' '{print $5}' | tr -d '[]%')
 if [[ "${status}" == "on" ]]; then
   echo "${volume}%"
   echo "${volume}%"
-  echo ""
+  echo "$(getcolor i3.block.fgrnd)"
   if [[ ${volume} -gt 100 ]]; then
     exit 33
   fi
 else
   echo "MUTE"
   echo "MUTE"
-  echo "#676E7D"
+  echo "$(getcolor i3.block.inact)"
 fi

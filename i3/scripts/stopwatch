@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const readline = require('readline');
+const { exec } = require('child_process');
 
 const file="/tmp/startime";
 const button = process.env.BLOCK_BUTTON;
@@ -19,13 +20,21 @@ switch (button) {
         break;
 }
 
+function printColor(val) {
+    exec('getcolor i3.block.fgrnd', (err, stdout, stderr) => {
+        console.log(val);
+        console.log(val);
+        console.log(stdout);
+    });
+}
+
 function startStopwatch() {
     fs.writeFileSync(file, now);
 }
 
 function resetStopwatch() {
     fs.writeFileSync(file, "0");
-    console.log(label);
+    printColor(label);
 }
 
 function lpad(x) {
@@ -53,10 +62,10 @@ function run() {
     
     lineReader.on('line', function (past) {
         if (past == 0) {
-            console.log(label);
+            printColor(label);
             return;
         }
-        console.log(label + " " + getStopwatchTime(now, past));
+        printColor(label + " " + getStopwatchTime(now, past));
     });
 
 }

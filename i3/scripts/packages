@@ -11,7 +11,7 @@ esac
 if [[ "${PACKAGE_COUNT}" -gt 0 ]]; then
   echo "${PACKAGE_COUNT}" # full-text
   echo "${PACKAGE_COUNT}" # short-text
-  echo ""
+  echo "$(getcolor i3.block.fgrnd)"
   if [[ "${PACKAGE_COUNT}" -gt "${URGENT_VALUE}" ]]; then
     exit 33
   fi

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "$(date '+  %a  %Y-%m-%d')"
+echo "$(date '+  %a  %Y-%m-%d')"
+echo "$(getcolor i3.block.fgrnd)"

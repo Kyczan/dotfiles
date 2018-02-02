@@ -8,6 +8,8 @@ URGENT_VALUE=5
 
 if [[ "${BATTERY_STATE}" = "Charging" ]]; then
   echo "${BATTERY_POWER}% "
+  echo "${BATTERY_POWER}% "
+	echo "$(getcolor i3.block.fgrnd)"
 else
   echo "${BATTERY_POWER}%"
   echo "${BATTERY_POWER}%"
@@ -16,15 +18,15 @@ fi
 if [[ "${BATTERY_STATE}" = "Discharging" ]]; then
 
   if [[ "${BATTERY_POWER}" -lt "20" ]]; then 
- 		echo "#FF0000\n";
+ 		echo "$(getcolor i3.block.batt.5)";
 	elif [[ "${BATTERY_POWER}" -lt "40" ]]; then
-		echo "#FFAE00\n";
+		echo "$(getcolor i3.block.batt.4)";
 	elif [[ "${BATTERY_POWER}" -lt "60" ]]; then
-		echo "#FFF600\n";
+		echo "$(getcolor i3.block.batt.3)";
 	elif [[ "${BATTERY_POWER}" -lt "85" ]]; then
-		echo "#A8FF00\n";
+		echo "$(getcolor i3.block.batt.2)";
 	elif [[ "${BATTERY_POWER}" -ge "85" ]]; then
-		echo "#00FF00\n";
+		echo "$(getcolor i3.block.batt.1)";
 	fi
 
   if [[ "${BATTERY_POWER}" -le "${URGENT_VALUE}" ]]; then

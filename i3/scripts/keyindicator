@@ -20,4 +20,6 @@ fi
 
 if [[ "${checkLock}" == "on" ]]; then
   echo "${TYPE}"
+  echo "${TYPE}"
+  echo "$(getcolor i3.block.fgrnd)"
 fi
