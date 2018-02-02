@@ -8,6 +8,11 @@ alias gpl="git pull"
 alias gf="git fetch"
 alias gp="git push"
 
+function gacmp () {
+  echo "git add, commit, push"
+  git add --all && git commit -am "$@" && git push
+}
+
 # cd
 alias cl="clear"
 alias cdd="cd ~/Projects/dotfiles/"
