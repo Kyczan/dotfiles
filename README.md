@@ -2,7 +2,7 @@
 my configuration dotfiles
 
 - [dotfiles](#dotfiles)
-    - [i3](#i3)
+    - [i3-gaps](#i3-gaps)
         - [i3 scripts](#i3-scripts)
             - [weather](#weather)
     - [urxvt](#urxvt)
@@ -14,9 +14,10 @@ my configuration dotfiles
 
 `install.sh` installs below applications and does some configuration. Use it without any warranty!
 
-## i3
-To run properly i3 based on this configuration you have to install following programs:
+## i3-gaps
+To run properly i3-gaps based on this configuration you have to install following programs:
 * `yaourt` ([installation instructions](https://www.ostechnix.com/install-yaourt-arch-linux/); for installing AUR packages)
+* `i3-gaps` fork of `i3` (AUR) ([installation instructions](https://github.com/Airblader/i3);)
 * `rofi` (for searching and launching apps)
 * `i3blocks` (for bar with custom informations)
 * `i3lock` (for locking screen)
