@@ -20,3 +20,6 @@ function cdl () {
 alias v="vim "
 alias p="pacman "
 alias y="yaourt "
+
+# ssh
+alias sshpi="ssh pi@pihole"
