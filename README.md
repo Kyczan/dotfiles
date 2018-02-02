@@ -12,6 +12,8 @@ my configuration dotfiles
     - [.Xresources](#xresources)
     - [.vimrc](#vimrc)
 
+![My desktop](/scrots/desktop.png)
+
 `install.sh` installs below applications and does some configuration. Use it without any warranty!
 
 ## i3-gaps
