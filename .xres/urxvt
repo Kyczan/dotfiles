@@ -18,7 +18,7 @@ URxvt.keysym.Control-Shift-V:   perl:pasta:paste
 
 !! Urxvt colors
 URxvt*foreground:               fg
-URxvt*background:               [70]bg
+URxvt*background:               [90]bg
 URxvt*cursorColor:              fg
 URxvt*cursorColor2:             bg
 URxvt*underlineColor:           ylw

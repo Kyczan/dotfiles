@@ -215,9 +215,9 @@ $exe chromium
 $exe setxkbmap -layout pl -option caps:escape # caps lock works as escape
 $exe synclient VertScrollDelta=-114 # enable natural vertical scroling
 $exe synclient HorizScrollDelta=-114 # enable natural horizontal scroling
+$exe restart-i3 # restarting because of Xresources needs to load
 
 # run on every config reload
-# $exe_always nm-applet # run network applet
 $exe_always compton -f # for nice transitions
 $exe_always numlockx on
 $exe_always pkill -SIGRTMIN+11 i3blocks # turn on numlock and send signal to i3blocks
