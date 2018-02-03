@@ -2,15 +2,17 @@
 
 URGENT_VALUE=5
 PACKAGE_COUNT=$(/usr/bin/checkupdates | wc -l)
+LABEL=""
 
 # update on left click
 case $BLOCK_BUTTON in
   1) urxvt -e sh -c "sudo pacman -Syu ; echo Done - Press enter to exit; read" 
+     echo ""
 esac
 
 if [[ "${PACKAGE_COUNT}" -gt 0 ]]; then
-  echo "${PACKAGE_COUNT}" # full-text
-  echo "${PACKAGE_COUNT}" # short-text
+  echo "${LABEL} ${PACKAGE_COUNT}" # full-text
+  echo "${LABEL} ${PACKAGE_COUNT}" # short-text
   echo "$(getcolor i3.block.fgrnd)"
   if [[ "${PACKAGE_COUNT}" -gt "${URGENT_VALUE}" ]]; then
     exit 33

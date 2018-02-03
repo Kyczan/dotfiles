@@ -3,16 +3,17 @@
 BATTERY_INFO=$(acpi -b | grep "Battery ${BLOCK_INSTANCE}")
 BATTERY_STATE=$(echo "${BATTERY_INFO}" | grep -wo "Full\|Charging\|Discharging")
 BATTERY_POWER=$(echo "${BATTERY_INFO}" | grep -o '[0-9]\+%' | tr -d '%')
+LABEL=
 
 URGENT_VALUE=5
 
 if [[ "${BATTERY_STATE}" = "Charging" ]]; then
-  echo "${BATTERY_POWER}% "
-  echo "${BATTERY_POWER}% "
+  echo "${LABEL} ${BATTERY_POWER}% "
+  echo "${LABEL} ${BATTERY_POWER}% "
 	echo "$(getcolor i3.block.fgrnd)"
 else
-  echo "${BATTERY_POWER}%"
-  echo "${BATTERY_POWER}%"
+  echo "${LABEL} ${BATTERY_POWER}%"
+  echo "${LABEL} ${BATTERY_POWER}%"
 fi
 
 if [[ "${BATTERY_STATE}" = "Discharging" ]]; then

@@ -6,6 +6,7 @@ esac
 
 device="${BLOCK_INSTANCE:-wlan0}"
 status=$(cat /sys/class/net/${device}/operstate)
+label=
 
 URGENT_VALUE=20
 
@@ -13,8 +14,8 @@ if [[ "${status}" == "up" ]]; then
   if [[ -d "/sys/class/net/${device}/wireless" ]]; then
     quality=$(grep ${device} /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
     qual="${quality}%"
-    echo ${qual:0:3}
-    echo ${qual:0:3}
+    echo "${label} ${qual:0:3}"
+    echo "${label} ${qual:0:3}"
     echo "$(getcolor i3.block.fgrnd)"
 
     if [[ "${quality}" -le "${URGENT_VALUE}" ]]; then

@@ -194,7 +194,7 @@ bindsym XF86AudioPrev $exe playerctl previous
 bindsym XF86TouchpadToggle $exe ~/.config/i3/scripts/touchpad-toggle
 
 # start app menu
-$super+d $exe rofi -show drun -config ~/.config/i3/rofi.conf
+$super+d $exe rofi -modi 'drun#window#run' -show drun
 
 # set wallpaper
 $exe_always feh --bg-scale ~/Pictures/wallpaper.png

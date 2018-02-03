@@ -1,5 +1,7 @@
 #!/bin/bash
 
-echo "$(date '+%H:%M')"
-echo "$(date '+%H:%M')"
+LABEL=
+
+echo "${LABEL} $(date '+%H:%M')"
+echo "${LABEL} $(date '+%H:%M')"
 echo "$(getcolor i3.block.fgrnd)"
