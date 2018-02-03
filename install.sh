@@ -4,7 +4,7 @@
 DOTS=~/Projects/dotfiles
 
 # install lot of apps
-sudo pacman -S --needed --noconfirm curl gvim rofi i3blocks i3lock feh lxappearance termite pulseaudio playerctl compton acpi scrot numlockx chromium zsh
+sudo pacman -S --needed --noconfirm curl gvim rofi i3blocks feh lxappearance pulseaudio playerctl compton acpi scrot numlockx chromium zsh
 
 # install yaourt
 cd ~
@@ -41,41 +41,21 @@ ln -s $DOTS/bin ~/
 # symlink xres
 ln -s $DOTS/.xres ~/
 
-# symlink aliases
-ln -s $DOTS/.aliases ~/
-
-# symlink zshrc
-rm ~/.zshrc
-ln -s $DOTS/.zshrc ~/
-
-# symlink .Xresources
-rm ~/.Xresources
-ln -s $DOTS/.Xresources ~/
-
 # symlink urxvt plugin
 sudo ln -s $DOTS/urxvt/pasta /usr/lib/urxvt/perl/
 
-# symlink vimrc
-ln -s $DOTS/.vimrc ~/
+# symlink all files from dots/
+ln -s $DOTS/dots/.* ~/
 
 # install pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
-# install dracula theme
-git clone git@github.com:dracula/vim.git ~/.vim/bundle/dracula-theme
 
 # install CtrlP
 git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 
 # install NERDTree
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
-
-# install dracula theme for gnome terminal
-cd ~/Projects
-git clone https://github.com/GalaticStryder/gnome-terminal-colors-dracula
-cd gnome-terminal-colors-dracula
-./install.sh
 
 # install zsh syntax highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting

@@ -5,8 +5,8 @@ call pathogen#infect()
 call pathogen#helptags()
 
 set background=dark
-syntax enable           " enable syntax processing
-" colorscheme dracula
+syntax on
+color dracula
 
 " tabs & spaces
 set tabstop=2           " number of visual spaces per TAB

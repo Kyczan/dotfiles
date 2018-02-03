@@ -3,13 +3,11 @@ my configuration dotfiles
 
 - [dotfiles](#dotfiles)
     - [i3-gaps](#i3-gaps)
-        - [i3 scripts](#i3-scripts)
-            - [weather](#weather)
+    - [i3 scripts](#i3-scripts)
+        - [weather](#weather)
+    - [dots symlinks](#dots-symlinks)
     - [urxvt](#urxvt)
     - [.xres](#xres)
-    - [.aliases](#aliases)
-    - [.zshrc](#zshrc)
-    - [.Xresources](#xresources)
     - [.vimrc](#vimrc)
 
 ![My desktop](/scrots/desktop.png)
@@ -50,53 +48,37 @@ gpg --recv-keys 5CC908FDB71E12C2
 It is worth to male symlink from repo to i3 config folder (assuming that i3 config is in `~/.config/i3`):
 ```
 rm -rf ~/.config/i3
-ln -s ~/path/to/repo/dotfiles/i3 ~/.config
+ln -s $DOTS/i3 ~/.config
 ```
 
-### i3 scripts
+## i3 scripts
 
-#### weather
+### weather
 Make account on openweathermap.org and obtain API key. Then rename `api.cfg.template` to `api.cfg` and update this file with your API key.
+## dots symlinks
+Symlink all files from `dots/` to `~/`
+```
+ln -s $DOTS/dots/.* ~/
+```
+Then reload `.zshrc` and `.Xresources`:
+```
+source ~/.zshrc
+source ~/.Xresources
+```
 ## urxvt
-To get to work normal copy paste in terminal create symlink:
+To get to work normal copy-paste in terminal create symlink:
 ```
 sudo ln -s $DOTS/urxvt/pasta /usr/lib/urxvt/perl/
 ```
 ## .xres
 To get to work `.xres` create symlink:
 ```
-ln -s ~/path/to/repo/dotfiles/.xres ~/
-```
-## .aliases
-To get to work `.aliases` create symlink:
-```
-ln -s ~/path/to/repo/dotfiles/.aliases ~/
-```
-## .zshrc
-To get to work `.zshrc` create symlink:
-```
-ln -s ~/path/to/repo/dotfiles/.zshrc ~/
-```
-Then reload `.zshrc`:
-```
-source ~/.zshrc
-```
-## .Xresources
-To get to work `.Xresources` create symlink:
-```
-ln -s ~/path/to/repo/dotfiles/.Xresources ~/
-```
-Then reload `.Xresources`:
-```
-source ~/.Xresources
+ln -s $DOTS/.xres ~/
 ```
 ## .vimrc
-Create symlink:
-```
-ln -s ~/path/to/repo/dotfiles/.vimrc ~/
-```
+Install [dracula theme](https://draculatheme.com/vim/)
+
 Install [pathogen](https://github.com/tpope/vim-pathogen) for plugins management.
 Now you can install:
-* [dracula theme](https://draculatheme.com/vim/)
 * [CtrlP](https://github.com/kien/ctrlp.vim) (for fuzzy search)
 * [NERDTree](https://github.com/scrooloose/nerdtree) (for file tree)
