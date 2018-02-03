@@ -7,7 +7,7 @@ LABEL=
 
 URGENT_VALUE=5
 
-if [[ "${BATTERY_STATE}" = "Charging" ]]; then
+if [[ "${BATTERY_STATE}" = "Charging" || "${BATTERY_STATE}" = "Full" ]]; then
   echo "${LABEL} ${BATTERY_POWER}% "
   echo "${LABEL} ${BATTERY_POWER}% "
 	echo "$(getcolor i3.block.fgrnd)"
