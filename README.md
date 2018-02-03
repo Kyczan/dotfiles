@@ -22,7 +22,7 @@ To run properly i3-gaps based on this configuration you have to install followin
 * `i3-gaps` fork of `i3` (AUR) ([installation instructions](https://github.com/Airblader/i3);)
 * `rofi` (for searching and launching apps)
 * `i3blocks` (for bar with custom informations)
-* `i3lock` (for locking screen)
+* `i3lock-color-git` (AUR) (for locking screen)
 * `feh` (for setting wallpaper; put wallpaper to `~/Pictures/wallpaper.jpg`)
 * `system-san-francisco-font-git`, `ttf-ms-fonts` (AUR; system font)
 * `ttf-font-awesome-4` (AUR; font with nice icons - use v4 - v5 breaks compatibility)

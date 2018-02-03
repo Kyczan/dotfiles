@@ -1,0 +1,39 @@
+#!/bin/bash
+
+B='#00000000'  # blank
+VI=$(getcolor ylw)'22'  # veryfying inside
+WI=$(getcolor red)'22'  # wrong inside
+D=$(getcolor wht)'FF'  # default
+T=$(getcolor wht)'FF'  # text
+W=$(getcolor red)'FF'  # wrong
+V=$(getcolor ylw)'FF'  # verifying
+H=$(getcolor grn)'FF'  # hlring
+
+i3lock \
+--insidevercolor=$VI  \
+--ringvercolor=$V     \
+\
+--insidewrongcolor=$WI \
+--ringwrongcolor=$W   \
+\
+--insidecolor=$B      \
+--ringcolor=$D        \
+--linecolor=$B        \
+--separatorcolor=$D   \
+\
+--verifcolor=$T       \
+--wrongcolor=$T       \
+--timecolor=$T        \
+--datecolor=$T        \
+--layoutcolor=$T      \
+--keyhlcolor=$H       \
+--bshlcolor=$H        \
+\
+--screen 0            \
+--blur 5              \
+--clock               \
+--indicator           \
+--timestr="%H:%M:%S"  \
+--datestr="%A %Y-%m-%d" \
+--veriftext="veryfing" \
+--wrongtext="Wrong"   \
