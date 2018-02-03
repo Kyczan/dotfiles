@@ -1,42 +1,160 @@
 # i3 config file (v4)
 
-# --vars--
-set $mod        Mod4
-set $super      bindsym Mod4
-set $exe        exec --no-startup-id
-set $exe_always exec_always --no-startup-id
-set $locker     ~/.config/i3/scripts/lock-pixel -p 10 && sleep 1 
+# ------------------------------------------------------------
+# --------------------------vars------------------------------
+# ------------------------------------------------------------
 
-set $left       Left
-set $right      Right
-set $up         Up
-set $down       Down
+set $mod            Mod4
+set $super          bindsym Mod4
+set $exe            exec --no-startup-id
+set $exe_always     exec_always --no-startup-id
+set $locker         ~/.config/i3/scripts/lock-pixel -p 10 && sleep 1 
+set $mode_system    System (l) lock, (e) logout, (s) suspend, (r) reboot, (p) shutdown
 
-set_from_resource $fnt1 i3.fntpri System San Francisco Display
-set_from_resource $fnt2 i3.fntsec FontAwesome
-set_from_resource $fntsz i3.fntsz 8
-set_from_resource $bg i3.bgrnd #282A36
-set_from_resource $fg i3.fgrnd #FF0000
-set_from_resource $in i3.inact #676E7D
-set_from_resource $ur i3.urgen #E53935
+set $left           Left
+set $right          Right
+set $up             Up
+set $down           Down
 
-font pango:$fnt1, $fnt2 $fntsz
+set_from_resource   $fnt1 i3.fntpri System San Francisco Display
+set_from_resource   $fnt2 i3.fntsec FontAwesome
+set_from_resource   $fntsz i3.fntsz 8
+set_from_resource   $bg i3.bgrnd #282A36
+set_from_resource   $fg i3.fgrnd #FFFFFF
+set_from_resource   $in i3.inact #676E7D
+set_from_resource   $ur i3.urgen #E53935
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+set $workspace1     "1: Chromium "
+set $workspace2     "2: Terminals " 
+set $workspace3     "3: VS Code " 
+set $workspace4     "4"
+set $workspace5     "5"
+set $workspace6     "6"
+set $workspace7     "7"
+set $workspace8     "8"
+set $workspace9     "9"
+set $workspace10    "10: Spotify "
+
+# ------------------------------------------------------------
+# ----------------------look and feel-------------------------
+# ------------------------------------------------------------
+
+# font
+font pango:$fnt1,$fnt2 $fntsz
 
 # thin borders
 for_window [class="^.*"] border pixel 0
-hide_edge_borders both
-new_window none # hides title
+hide_edge_borders        both
+
+# hides title
+new_window none 
 
 # gaps
 gaps inner 20
 gaps outer 0
-# smart_gaps on
+
+# window colors         border bground text indicator
+client.focused          $bg    $bg     $fg  $bg
+client.unfocused        $bg    $bg     $in  $bg
+client.focused_inactive $bg    $bg     $in  $bg
+client.urgent           $ur    $ur     $fg  $ur
+
+# status bar
+bar {
+    status_command  i3blocks -c ~/.config/i3/i3blocks.conf
+    font            pango:$fnt1,$fnt2 $fntsz
+    position        top
+    colors {
+        background  $bg
+        separator   $in
+        #                  border bground text
+        focused_workspace  $bg    $bg     $fg
+        inactive_workspace $bg    $bg     $in
+        urgent_workspace   $bg    $bg     $ur
+    }
+}
+
+# ------------------------------------------------------------
+# -----------------------workspaces---------------------------
+# ------------------------------------------------------------ 
+
+# switch to workspace
+$super+1 workspace $workspace1 
+$super+2 workspace $workspace2 
+$super+3 workspace $workspace3 
+$super+4 workspace $workspace4
+$super+5 workspace $workspace5
+$super+6 workspace $workspace6
+$super+7 workspace $workspace7
+$super+8 workspace $workspace8
+$super+9 workspace $workspace9
+$super+0 workspace $workspace10
+
+# move focused container to workspace
+$super+Shift+1 move container to workspace $workspace1
+$super+Shift+2 move container to workspace $workspace2
+$super+Shift+3 move container to workspace $workspace3 
+$super+Shift+4 move container to workspace $workspace4
+$super+Shift+5 move container to workspace $workspace5
+$super+Shift+6 move container to workspace $workspace6
+$super+Shift+7 move container to workspace $workspace7
+$super+Shift+8 move container to workspace $workspace8
+$super+Shift+9 move container to workspace $workspace9
+$super+Shift+0 move container to workspace $workspace10
+
+# open some apps on specified workspaces
+for_window [class="Chromium"]   move to workspace $workspace1
+for_window [class="Code"]       move to workspace $workspace3 focus
+for_window [class="Spotify"]    move to workspace $workspace10
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    bindsym $left  resize shrink width  10 px or 10 ppt
+    bindsym $down  resize grow   height 10 px or 10 ppt
+    bindsym $up    resize shrink height 10 px or 10 ppt
+    bindsym $right resize grow   width  10 px or 10 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+$super+r mode "resize"
+
+# ------------------------------------------------------------
+# ------------------session and power control-----------------
+# ------------------------------------------------------------
+
+# reload the configuration file
+$super+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+$super+Shift+r $exe restart-i3
+
+mode "$mode_system" {
+    bindsym l $exe $locker, mode "default"
+    bindsym e $exe i3-msg exit, mode "default"
+    bindsym s $exe $locker && systemctl suspend, mode "default"
+    bindsym r $exe systemctl reboot, mode "default"
+    bindsym p $exe systemctl poweroff -i, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+$super+p mode "$mode_system"
+
+# ------------------------------------------------------------
+# ----------------------key bindings--------------------------
+# ------------------------------------------------------------
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
 
 # start a terminal
 $super+Return $exe urxvt 
+
+# start app menu
+$super+d $exe rofi -modi 'drun#window#run' -show drun
 
 # kill focused window
 $super+q kill
@@ -54,7 +172,7 @@ $super+Shift+$up        move up
 $super+Shift+$right     move right
 
 # split in horizontal orientation
-$super+Shift+v split h
+$super+h split h
 
 # split in vertical orientation
 $super+v split v
@@ -77,137 +195,39 @@ $super+space focus mode_toggle
 $super+a focus parent
 
 # focus the child container
-#$super+d focus child
-
-set $workspace1 "1: Chromium "
-set $workspace2 "2: Terminals " 
-set $workspace3 "3: VS Code " 
-set $workspace10 "10: Spotify " 
-
-# switch to workspace
-$super+1 workspace $workspace1 
-$super+2 workspace $workspace2 
-$super+3 workspace $workspace3 
-$super+4 workspace 4
-$super+5 workspace 5
-$super+6 workspace 6
-$super+7 workspace 7
-$super+8 workspace 8
-$super+9 workspace 9
-$super+0 workspace $workspace10
-
-# move focused container to workspace
-$super+Shift+1 move container to workspace $workspace1
-$super+Shift+2 move container to workspace $workspace2
-$super+Shift+3 move container to workspace $workspace3 
-$super+Shift+4 move container to workspace 4
-$super+Shift+5 move container to workspace 5
-$super+Shift+6 move container to workspace 6
-$super+Shift+7 move container to workspace 7
-$super+Shift+8 move container to workspace 8
-$super+Shift+9 move container to workspace 9
-$super+Shift+0 move container to workspace $workspace10
-
-# open some apps on specified workspaces
-for_window [class="Spotify"] move to workspace $workspace10
-for_window [class="Chromium"] move to workspace $workspace1
-for_window [class="Code"] move to workspace $workspace3 focus
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        bindsym $left   resize shrink width 10 px or 10 ppt
-        bindsym $down   resize grow height 10 px or 10 ppt
-        bindsym $up     resize shrink height 10 px or 10 ppt
-        bindsym $right  resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-$super+r mode "resize"
-
-# reload the configuration file
-$super+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-$super+Shift+r $exe restart-i3
-# exit i3 (logs you out of your X session)
-$super+Shift+e exec "i3-nagbar -t warning -m \
-'You pressed the exit shortcut. \
-Do you really want to exit i3? \
-This will end your X session.' \
--b 'Yes, exit i3' 'i3-msg exit'"
-
-set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (p) shutdown
-mode "$mode_system" {
-    bindsym l $exe $locker, mode "default"
-    bindsym e $exe i3-msg exit, mode "default"
-    bindsym s $exe $locker && systemctl suspend, mode "default"
-    bindsym r $exe systemctl reboot, mode "default"
-    bindsym p $exe systemctl poweroff -i, mode "default"  
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-$super+p mode "$mode_system"
-
-# window colors
-#                       border background text indicator
-client.focused          $bg    $bg        $fg  $bg
-client.unfocused        $bg    $bg        $in  $bg
-client.focused_inactive $bg    $bg        $in  $bg
-client.urgent           $ur    $ur        $fg  $ur
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	font pango:$fnt1, $fnt2 $fntsz
-	colors {
-		background $bg
-	    	separator $in
-		#                  border background text
-		focused_workspace  $bg    $bg        $fg
-		inactive_workspace $bg    $bg        $in
-		urgent_workspace   $bg    $bg        $ur
-	}
-
-	position top
-}
+$super+Shift+a focus child
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume $exe pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
-bindsym XF86AudioLowerVolume $exe pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
-bindsym XF86AudioMute $exe pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
+bindsym XF86AudioRaiseVolume    $exe pactl set-sink-volume  @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume    $exe pactl set-sink-volume  @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym XF86AudioMute           $exe pactl set-sink-mute    @DEFAULT_SINK@ toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp $exe xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown $exe xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp     $exe xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown   $exe xbacklight -dec 20 # decrease screen brightness
 
 # Media player controls
-bindsym XF86AudioPlay $exe playerctl play-pause
-bindsym XF86AudioPause $exe playerctl play-pause
-bindsym XF86AudioNext $exe playerctl next
-bindsym XF86AudioPrev $exe playerctl previous
+bindsym XF86AudioPlay   $exe playerctl play-pause
+bindsym XF86AudioPause  $exe playerctl play-pause
+bindsym XF86AudioNext   $exe playerctl next
+bindsym XF86AudioPrev   $exe playerctl previous
 
 # toggle touchpad
 bindsym XF86TouchpadToggle $exe ~/.config/i3/scripts/touchpad-toggle
 
-# start app menu
-$super+d $exe rofi -modi 'drun#window#run' -show drun
-
-# set wallpaper
-$exe_always feh --bg-scale ~/Pictures/wallpaper.png
-
-# sending signal to i3blocks
-bindsym --release Caps_Lock $exe pkill -SIGRTMIN+11 i3blocks
-bindsym --release Num_Lock  $exe pkill -SIGRTMIN+11 i3blocks
-bindsym --release XF86AudioRaiseVolume $exe pkill -SIGRTMIN+10 i3blocks
-bindsym --release XF86AudioLowerVolume  $exe pkill -SIGRTMIN+10 i3blocks
-bindsym --release XF86AudioMute  $exe pkill -SIGRTMIN+10 i3blocks
-
 # save screenshot
 bindsym Print $exe scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
+
+# sending signal to i3blocks
+bindsym --release Caps_Lock             $exe pkill -SIGRTMIN+11 i3blocks
+bindsym --release Num_Lock              $exe pkill -SIGRTMIN+11 i3blocks
+bindsym --release XF86AudioRaiseVolume  $exe pkill -SIGRTMIN+10 i3blocks
+bindsym --release XF86AudioLowerVolume  $exe pkill -SIGRTMIN+10 i3blocks
+bindsym --release XF86AudioMute         $exe pkill -SIGRTMIN+10 i3blocks
+
+# ------------------------------------------------------------
+# -----------------------autostarts---------------------------
+# ------------------------------------------------------------
 
 # run on i3 startup
 $exe $locker # lock screen on boot
@@ -219,6 +239,7 @@ $exe restart-i3 # restarting because of Xresources needs to load
 
 # run on every config reload
 $exe_always compton -f # for nice transitions
-$exe_always numlockx on
-$exe_always pkill -SIGRTMIN+11 i3blocks # turn on numlock and send signal to i3blocks
-$exe_always pkill -SIGRTMIN+10 i3blocks
+$exe_always numlockx on # turn on numlock
+$exe_always pkill -SIGRTMIN+11 i3blocks # send numlock signal to i3blocks
+$exe_always pkill -SIGRTMIN+10 i3blocks # send volume signal to i3blocks
+$exe_always feh --bg-scale ~/Pictures/wallpaper.png # set wallpaper
