@@ -17,7 +17,7 @@ my configuration dotfiles
 ## i3-gaps
 To run properly i3-gaps based on this configuration you have to install following programs:
 * `yaourt` ([installation instructions](https://www.ostechnix.com/install-yaourt-arch-linux/); for installing AUR packages)
-* `i3-gaps` fork of `i3` (AUR) ([installation instructions](https://github.com/Airblader/i3);)
+* `i3-gaps` fork of `i3` (AUR) ([installation instructions](https://github.com/Airblader/i3))
 * `rofi` (for searching and launching apps)
 * `i3blocks` (for bar with custom informations)
 * `i3lock-color-git` (AUR) (for locking screen)
@@ -38,7 +38,7 @@ To run properly i3-gaps based on this configuration you have to install followin
 * `xss-lock-git` (AUR; for locking screen after suspend. To suspend after closing lid, go to `/etc/systemd/logind.conf`, uncomment `HandleLidSwitch=suspend`)
 * `numlockx` (for turning on numlock on start)
 * `chromium`
-* `visual-studio-code` (AUR; nice editor for programmers)
+* `code` (AUR; nice editor for programmers)
 * `spotify` (AUR), before installing add following gpg keys:
 ```
 gpg --recv-keys --keyserver hkp://pgp.mit.edu D9C4D26D0E604491
