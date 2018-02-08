@@ -8,7 +8,8 @@ set $mod            Mod4
 set $super          bindsym Mod4
 set $exe            exec --no-startup-id
 set $exe_always     exec_always --no-startup-id
-set $locker         ~/.config/i3/scripts/lockme
+set $i3dir          ~/.config/i3
+set $locker         $i3dir/scripts/lockme
 set $mode_system    System (l) lock, (e) logout, (s) suspend, (r) reboot, (p) shutdown
 
 set $left           Left
@@ -61,7 +62,7 @@ client.urgent           $ur    $ur     $fg  $ur
 
 # status bar
 bar {
-    status_command  i3blocks -c ~/.config/i3/i3blocks.conf
+    status_command  i3blocks -c $i3dir/i3blocks/config
     font            pango:$fnt1,$fnt2 $fntsz
     position        top
     colors {
@@ -128,7 +129,7 @@ $super+r mode "resize"
 $super+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-$super+Shift+r $exe restart-i3
+$super+Shift+r $exe $i3dir/scripts/restart-i3
 
 mode "$mode_system" {
     bindsym l $exe $locker, mode "default"
@@ -213,7 +214,7 @@ bindsym XF86AudioNext   $exe playerctl next
 bindsym XF86AudioPrev   $exe playerctl previous
 
 # toggle touchpad
-bindsym XF86TouchpadToggle $exe ~/.config/i3/scripts/touchpad-toggle
+bindsym XF86TouchpadToggle $exe $i3dir/scripts/touchpad-toggle
 
 # save screenshot
 bindsym Print $exe scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
