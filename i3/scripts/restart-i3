@@ -1,5 +1,5 @@
 #!/bin/bash
 
 . $HOME/.zshrc
-xrdb ~/.Xresources
+xrdb $HOME/.Xresources
 i3-msg restart

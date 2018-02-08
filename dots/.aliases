@@ -1,5 +1,10 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
 # git
-alias gs="echo git status; git status "
+alias gs="printf \"${RED}git status\n${NC}\"; git status "
 alias ga="echo git add --all; git add --all "
 alias gc="git commit -a "
 alias gcm="git commit -am "
@@ -9,8 +14,17 @@ alias gf="git fetch"
 alias gp="git push"
 
 function gacmp () {
-  echo "git add, commit, push"
-  git add --all && git commit -am "$@" && git push
+  printf "${RED}git add\n${NC}"
+  git add --all
+
+  printf "${RED}git commit\n${NC}"
+  git commit -am "$@"
+
+  printf "${RED}git push\n${NC}"
+  git push
+
+  printf "${RED}git status\n${NC}"
+  git status
 }
 
 # cd
