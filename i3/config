@@ -9,7 +9,7 @@ set $super          bindsym Mod4
 set $exe            exec --no-startup-id
 set $exe_always     exec_always --no-startup-id
 set $i3dir          ~/.config/i3
-set $locker         $i3dir/scripts/lockme
+set $locker         ~/.config/i3/scripts/lockme
 set $mode_system    System (l) lock, (e) logout, (s) suspend, (r) reboot, (p) shutdown
 
 set $left           Left
