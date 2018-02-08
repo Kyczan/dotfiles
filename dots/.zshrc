@@ -14,7 +14,7 @@ export ZSH=/home/kowal/.oh-my-zsh
 ZSH_THEME="bira"
 
 # Plugins
-plugins=(git)
+# plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 autoload -Uz promptinit

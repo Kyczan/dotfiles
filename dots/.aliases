@@ -3,28 +3,28 @@
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
+function printred () {
+  printf "${RED}$@\n${NC}"
+}
+
 # git
-alias gs="printf \"${RED}git status\n${NC}\"; git status "
-alias ga="echo git add --all; git add --all "
-alias gc="git commit -a "
-alias gcm="git commit -am "
-alias gacm="git add --all && git commit -am "
-alias gpl="git pull"
-alias gf="git fetch"
-alias gp="git push"
+alias gs="printred \"git status\"; git status "
+alias ga="printred \"git add --all\"; git add --all "
+alias gc="printred \"git commit -a\"; git commit -a "
+alias gcm="printred \"git commit -am\"; git commit -am "
+alias gacm="ga; gcm "
+alias gpl="printred \"git pull\"; git pull"
+alias gf="printred \"git fetch\"; git fetch"
+alias gp="printred \"git push\"; git push"
 
 function gacmp () {
-  printf "${RED}git add\n${NC}"
-  git add --all
+  ga
 
-  printf "${RED}git commit\n${NC}"
+  printred "git commit"
   git commit -am "$@"
 
-  printf "${RED}git push\n${NC}"
-  git push
-
-  printf "${RED}git status\n${NC}"
-  git status
+  gp
+  gs
 }
 
 # cd
