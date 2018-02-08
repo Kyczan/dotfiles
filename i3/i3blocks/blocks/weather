@@ -2,8 +2,7 @@
 # Based on http://openweathermap.org/current
 
 # Get API key from cfg file
-. $HOME/.zshrc
-. $IDIR/i3blocks/blocks/weather.cfg
+. $HOME/.config/i3/i3blocks/blocks/weather.cfg
 API_KEY="${OPENWEATHER_API_KEY}"
 
 # Check on http://openweathermap.org/find

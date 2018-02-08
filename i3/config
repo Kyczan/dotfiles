@@ -17,14 +17,6 @@ set $right          Right
 set $up             Up
 set $down           Down
 
-set_from_resource   $fnt1 i3.fntpri System San Francisco Display
-set_from_resource   $fnt2 i3.fntsec FontAwesome
-set_from_resource   $fntsz i3.fntsz 8
-set_from_resource   $bg i3.bgrnd #282A36
-set_from_resource   $fg i3.fgrnd #FFFFFF
-set_from_resource   $in i3.inact #676E7D
-set_from_resource   $ur i3.urgen #E53935
-
 set $workspace1     "1: Chromium "
 set $workspace2     "2: Terminals " 
 set $workspace3     "3: VS Code " 
@@ -35,6 +27,14 @@ set $workspace7     "7"
 set $workspace8     "8"
 set $workspace9     "9"
 set $workspace10    "10: Spotify "
+
+set_from_resource   $fnt1 i3.fntpri System San Francisco Display
+set_from_resource   $fnt2 i3.fntsec FontAwesome
+set_from_resource   $fntsz i3.fntsz 8
+set_from_resource   $bg i3.bgrnd #282A36
+set_from_resource   $fg i3.fgrnd #FFFFFF
+set_from_resource   $in i3.inact #676E7D
+set_from_resource   $ur i3.urgen #E53935
 
 # ------------------------------------------------------------
 # ----------------------look and feel-------------------------
@@ -242,5 +242,5 @@ $exe chromium
 $exe setxkbmap -layout pl -option caps:escape # caps lock works as escape
 $exe synclient VertScrollDelta=-114 # enable natural vertical scroling
 $exe synclient HorizScrollDelta=-114 # enable natural horizontal scroling
-$exe restart-i3 # restarting because of Xresources needs to load
 $exe xss-lock -- $locker # lock screen on suspend
+$exe $i3dir/scripts/restart-i3 # restarting because of Xresources needs to load
