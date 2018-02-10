@@ -18,9 +18,9 @@ set $up             Up
 set $down           Down
 
 set $workspace1     "1: Chromium "
-set $workspace2     "2: Terminals " 
-set $workspace3     "3: VS Code " 
-set $workspace4     "4"
+set $workspace2     "2: VS Code " 
+set $workspace3     "3: Terminals " 
+set $workspace4     "4: Ranger "
 set $workspace5     "5"
 set $workspace6     "6"
 set $workspace7     "7"
@@ -80,16 +80,16 @@ bar {
 # ------------------------------------------------------------ 
 
 # switch to workspace
-$super+1 workspace $workspace1 
-$super+2 workspace $workspace2 
-$super+3 workspace $workspace3 
-$super+4 workspace $workspace4
-$super+5 workspace $workspace5
-$super+6 workspace $workspace6
-$super+7 workspace $workspace7
-$super+8 workspace $workspace8
-$super+9 workspace $workspace9
-$super+0 workspace $workspace10
+$super+1 workspace number $workspace1 
+$super+2 workspace number $workspace2 
+$super+3 workspace number $workspace3 
+$super+4 workspace number $workspace4
+$super+5 workspace number $workspace5
+$super+6 workspace number $workspace6
+$super+7 workspace number $workspace7
+$super+8 workspace number $workspace8
+$super+9 workspace number $workspace9
+$super+0 workspace number $workspace10
 
 # move focused container to workspace
 $super+Shift+1 move container to workspace $workspace1
@@ -105,7 +105,7 @@ $super+Shift+0 move container to workspace $workspace10
 
 # open some apps on specified workspaces
 for_window [class="Chromium"]   move to workspace $workspace1
-for_window [class="Code"]       move to workspace $workspace3 focus
+for_window [class="Code"]       move to workspace $workspace2 focus
 for_window [class="Spotify"]    move to workspace $workspace10
 
 # resize window (you can also use the mouse for that)

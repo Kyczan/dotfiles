@@ -36,9 +36,10 @@ function cdl () {
 }
 
 # others
-alias v="vim "
-alias p="pacman "
-alias y="yaourt "
+alias v="vim"
+alias p="pacman"
+alias y="yaourt"
+alias r="ranger"
 
 # ssh
 alias sshpi="ssh pi@pihole"
