@@ -234,12 +234,12 @@ bindsym --release XF86AudioMute         $exe pkill -SIGRTMIN+10 i3blocks
 # ------------------------------------------------------------
 
 # run on every config reload
-$exe_always compton -f # for nice transitions
 $exe_always pkill -SIGRTMIN+11 i3blocks # send numlock signal to i3blocks
 $exe_always pkill -SIGRTMIN+10 i3blocks # send volume signal to i3blocks
 $exe_always feh --bg-scale ~/Pictures/wallpaper.png # set wallpaper
 
 # run on i3 startup
+$exe compton -b --config $i3dir/compton/compton.conf
 $exe chromium
 $exe synclient VertScrollDelta=-114 # enable natural vertical scroling
 $exe synclient HorizScrollDelta=-114 # enable natural horizontal scroling
