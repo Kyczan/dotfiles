@@ -6,6 +6,7 @@ my configuration dotfiles
     - [i3 scripts](#i3-scripts)
         - [weather](#weather)
     - [dots symlinks](#dots-symlinks)
+    - [ranger](#ranger)
     - [urxvt](#urxvt)
     - [.xres](#xres)
     - [.vimrc](#vimrc)
@@ -37,6 +38,7 @@ To run properly i3-gaps based on this configuration you have to install followin
 * `scrot` (for making screenshots; also create directory `~/Pictures/screenshots`)
 * `xss-lock-git` (AUR; for locking screen after suspend. To suspend after closing lid, go to `/etc/systemd/logind.conf`, uncomment `HandleLidSwitch=suspend`)
 * `numlockx` (for turning on numlock on start)
+* `ranger` `w3m` (console based file manager)
 * `chromium`
 * `code` (AUR; nice editor for programmers)
 * `spotify` (AUR), before installing add following gpg keys:
@@ -64,6 +66,12 @@ Then reload `.zshrc` and `.Xresources`:
 ```
 source ~/.zshrc
 source ~/.Xresources
+```
+## ranger
+Create symlink:
+```
+rm -rf ~/.config/ranger
+ln -s $DOTS/ranger ~/.config
 ```
 ## urxvt
 To get to work normal copy-paste in terminal create symlink:

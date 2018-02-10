@@ -4,7 +4,7 @@
 DOTS=~/Projects/dotfiles
 
 # install lot of apps
-sudo pacman -S --needed --noconfirm curl gvim rofi i3blocks feh lxappearance pulseaudio playerctl compton acpi scrot numlockx chromium zsh
+sudo pacman -S --needed --noconfirm curl gvim rofi i3blocks feh lxappearance pulseaudio playerctl compton acpi scrot numlockx chromium ranger w3m zsh
 
 # install yaourt
 cd ~
@@ -34,6 +34,10 @@ yaourt -S i3-gaps i3lock-color-git system-san-francisco-font-git ttf-ms-fonts tt
 # symlink i3
 rm -rf ~/.config/i3
 ln -s $DOTS/i3 ~/.config
+
+# symlink i3
+rm -rf ~/.config/ranger
+ln -s $DOTS/ranger ~/.config
 
 # symlink my bin
 ln -s $DOTS/bin ~/
