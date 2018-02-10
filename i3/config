@@ -95,21 +95,21 @@ $super+Tab         workspace next
 $super+Shift+Tab   workspace prev
 
 # move focused container to workspace
-$super+Shift+1 move container to workspace $workspace1
-$super+Shift+2 move container to workspace $workspace2
-$super+Shift+3 move container to workspace $workspace3 
-$super+Shift+4 move container to workspace $workspace4
-$super+Shift+5 move container to workspace $workspace5
-$super+Shift+6 move container to workspace $workspace6
-$super+Shift+7 move container to workspace $workspace7
-$super+Shift+8 move container to workspace $workspace8
-$super+Shift+9 move container to workspace $workspace9
-$super+Shift+0 move container to workspace $workspace10
+$super+Shift+1 move container to workspace number $workspace1
+$super+Shift+2 move container to workspace number $workspace2
+$super+Shift+3 move container to workspace number $workspace3 
+$super+Shift+4 move container to workspace number $workspace4
+$super+Shift+5 move container to workspace number $workspace5
+$super+Shift+6 move container to workspace number $workspace6
+$super+Shift+7 move container to workspace number $workspace7
+$super+Shift+8 move container to workspace number $workspace8
+$super+Shift+9 move container to workspace number $workspace9
+$super+Shift+0 move container to workspace number $workspace10
 
 # open some apps on specified workspaces
-for_window [class="Chromium"]   move to workspace $workspace1
-for_window [class="Code"]       move to workspace $workspace2 focus
-for_window [class="Spotify"]    move to workspace $workspace10
+for_window [class="Chromium"]   move to workspace number $workspace1
+for_window [class="Code"]       move to workspace number $workspace2 focus
+for_window [class="Spotify"]    move to workspace number $workspace10
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
