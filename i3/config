@@ -91,6 +91,9 @@ $super+8 workspace number $workspace8
 $super+9 workspace number $workspace9
 $super+0 workspace number $workspace10
 
+$super+Tab         workspace next
+$super+Shift+Tab   workspace prev
+
 # move focused container to workspace
 $super+Shift+1 move container to workspace $workspace1
 $super+Shift+2 move container to workspace $workspace2
