@@ -80,36 +80,36 @@ bar {
 # ------------------------------------------------------------ 
 
 # switch to workspace
-$super+1 workspace number $workspace1 
-$super+2 workspace number $workspace2 
-$super+3 workspace number $workspace3 
-$super+4 workspace number $workspace4
-$super+5 workspace number $workspace5
-$super+6 workspace number $workspace6
-$super+7 workspace number $workspace7
-$super+8 workspace number $workspace8
-$super+9 workspace number $workspace9
-$super+0 workspace number $workspace10
+$super+1 workspace $workspace1 
+$super+2 workspace $workspace2 
+$super+3 workspace $workspace3 
+$super+4 workspace $workspace4
+$super+5 workspace $workspace5
+$super+6 workspace $workspace6
+$super+7 workspace $workspace7
+$super+8 workspace $workspace8
+$super+9 workspace $workspace9
+$super+0 workspace $workspace10
 
 $super+Tab         workspace next
 $super+Shift+Tab   workspace prev
 
 # move focused container to workspace
-$super+Shift+1 move container to workspace number $workspace1
-$super+Shift+2 move container to workspace number $workspace2
-$super+Shift+3 move container to workspace number $workspace3 
-$super+Shift+4 move container to workspace number $workspace4
-$super+Shift+5 move container to workspace number $workspace5
-$super+Shift+6 move container to workspace number $workspace6
-$super+Shift+7 move container to workspace number $workspace7
-$super+Shift+8 move container to workspace number $workspace8
-$super+Shift+9 move container to workspace number $workspace9
-$super+Shift+0 move container to workspace number $workspace10
+$super+Shift+1 move container to workspace $workspace1
+$super+Shift+2 move container to workspace $workspace2
+$super+Shift+3 move container to workspace $workspace3 
+$super+Shift+4 move container to workspace $workspace4
+$super+Shift+5 move container to workspace $workspace5
+$super+Shift+6 move container to workspace $workspace6
+$super+Shift+7 move container to workspace $workspace7
+$super+Shift+8 move container to workspace $workspace8
+$super+Shift+9 move container to workspace $workspace9
+$super+Shift+0 move container to workspace $workspace10
 
 # open some apps on specified workspaces
-for_window [class="Chromium"]   move to workspace number $workspace1
-for_window [class="Code"]       move to workspace number $workspace2 focus
-for_window [class="Spotify"]    move to workspace number $workspace10
+for_window [class="Chromium"]   move to workspace $workspace1
+for_window [class="Code"]       move to workspace $workspace2 focus
+for_window [class="Spotify"]    move to workspace $workspace10
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -234,12 +234,13 @@ bindsym --release XF86AudioMute         $exe pkill -SIGRTMIN+10 i3blocks
 # ------------------------------------------------------------
 
 # run on every config reload
+$exe_always compton -f # for nice transitions
 $exe_always pkill -SIGRTMIN+11 i3blocks # send numlock signal to i3blocks
 $exe_always pkill -SIGRTMIN+10 i3blocks # send volume signal to i3blocks
 $exe_always feh --bg-scale ~/Pictures/wallpaper.png # set wallpaper
 
 # run on i3 startup
-$exe compton -b --config $i3dir/compton/compton.conf
+#$exe compton -b --config $i3dir/compton/compton.conf
 $exe chromium
 $exe synclient VertScrollDelta=-114 # enable natural vertical scroling
 $exe synclient HorizScrollDelta=-114 # enable natural horizontal scroling
