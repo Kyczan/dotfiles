@@ -1,7 +1,7 @@
 #!/bin/bash
 
 case $BLOCK_BUTTON in
-  1) nm-connection-editor 
+  1) urxvt -e sh -c "nm-applet" 
 esac
 
 device="${BLOCK_INSTANCE:-wlan0}"
