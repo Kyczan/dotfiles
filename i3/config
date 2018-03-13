@@ -204,6 +204,9 @@ $super+Shift+a focus child
 # run updates
 $super+u $exe runupdates
 
+# run network applet
+$super+n $exe runnetwork
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume    $exe pactl set-sink-volume  @DEFAULT_SINK@ +5% #increase sound volume
 bindsym XF86AudioLowerVolume    $exe pactl set-sink-volume  @DEFAULT_SINK@ -5% #decrease sound volume
