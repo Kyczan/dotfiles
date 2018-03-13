@@ -201,6 +201,9 @@ $super+a focus parent
 # focus the child container
 $super+Shift+a focus child
 
+# run updates
+$super+u $exe runupdates
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume    $exe pactl set-sink-volume  @DEFAULT_SINK@ +5% #increase sound volume
 bindsym XF86AudioLowerVolume    $exe pactl set-sink-volume  @DEFAULT_SINK@ -5% #decrease sound volume

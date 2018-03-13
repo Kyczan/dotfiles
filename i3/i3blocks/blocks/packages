@@ -6,7 +6,7 @@ LABEL=""
 
 # update on left click
 case $BLOCK_BUTTON in
-  1) urxvt -e sh -c "sudo pacman -Syu ; echo Done - Press enter to exit; read" 
+  1) runupdates 
      echo ""
 esac
 
