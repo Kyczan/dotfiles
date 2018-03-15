@@ -12,10 +12,15 @@ set $i3dir          ~/.config/i3
 set $locker         ~/.config/i3/scripts/lockme
 set $mode_system    System (l) lock, (e) logout, (s) suspend, (r) reboot, (p) shutdown
 
-set $left           Left
-set $right          Right
-set $up             Up
-set $down           Down
+# set $left           Left
+# set $right          Right
+# set $up             Up
+# set $down           Down
+
+set $left           h
+set $right          l
+set $up             k
+set $down           j
 
 set $workspace1     "1: Chromium "
 set $workspace2     "2: VS Code " 
@@ -176,7 +181,7 @@ $super+Shift+$up        move up
 $super+Shift+$right     move right
 
 # split in horizontal orientation
-$super+h split h
+$super+Shift+v split h
 
 # split in vertical orientation
 $super+v split v
