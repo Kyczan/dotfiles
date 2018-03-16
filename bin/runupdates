@@ -1,3 +1,4 @@
 #!/bin/bash
 
 urxvt -e sh -c "sudo pacman -Syu ; echo Done - Press enter to exit; read"
+i3-msg -q 'exec pkill -SIGRTMIN+13 i3blocks' # send signal to i3blocks

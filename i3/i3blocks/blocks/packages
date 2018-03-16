@@ -7,7 +7,6 @@ LABEL=""
 # update on left click
 case $BLOCK_BUTTON in
   1) runupdates 
-     echo ""
 esac
 
 if [[ "${PACKAGE_COUNT}" -gt 0 ]]; then

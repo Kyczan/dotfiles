@@ -44,3 +44,4 @@ signal=11
 
 [packages]
 interval=300
+signal=13
