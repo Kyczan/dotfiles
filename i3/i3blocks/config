@@ -34,8 +34,8 @@ interval=1
 [time]
 interval=1
 
-[stopwatch]
-interval=1
+# [stopwatch]
+# interval=1
 
 [keyindicator]
 instance=NUM
