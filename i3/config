@@ -56,7 +56,7 @@ hide_edge_borders        both
 new_window none 
 
 # gaps
-gaps inner 20
+gaps inner 15
 gaps outer 0
 
 # window colors         border bground text indicator
@@ -234,7 +234,6 @@ bindsym XF86TouchpadToggle $exe $i3dir/scripts/touchpad-toggle
 bindsym Print $exe scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
 
 # sending signal to i3blocks
-bindsym --release Caps_Lock             $exe pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock              $exe pkill -SIGRTMIN+11 i3blocks
 bindsym --release XF86AudioRaiseVolume  $exe pkill -SIGRTMIN+10 i3blocks
 bindsym --release XF86AudioLowerVolume  $exe pkill -SIGRTMIN+10 i3blocks
