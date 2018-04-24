@@ -15,4 +15,3 @@ sub on_user_command {
     $self->selection_request (urxvt::CurrentTime, 3);
   }
   ()
-}

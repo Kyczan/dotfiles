@@ -160,7 +160,7 @@ $super+p mode "$mode_system"
 floating_modifier $mod
 
 # start a terminal
-$super+Return $exe urxvt 
+$super+Return $exe urxvtc
 
 # start app menu
 $super+d $exe rofi -modi 'drun#window#run' -show drun

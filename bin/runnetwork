@@ -1,3 +1,3 @@
 #!/bin/bash
 
-urxvt -e sh -c "nm-applet"
+urxvtc -e sh -c "nm-applet"
