@@ -25,40 +25,28 @@ WEATHER_URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&appid=
 
 WEATHER_INFO=$(wget -qO- "${WEATHER_URL}")
 WEATHER_MAIN=$(echo "${WEATHER_INFO}" | grep -o -e '\"main\":\"[a-Z]*\"' | awk -F ':' '{print $2}' | tr -d '"')
+WEATHER_CODE=$(echo "${WEATHER_INFO}" | grep -o -e '\"id\":[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
 WEATHER_TEMP=$(echo "${WEATHER_INFO}" | grep -o -e '\"temp\":\-\?[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
 WEATHER_ICON=$(echo "${WEATHER_INFO}" | grep -o -e '\"icon\":\"[a-zA-Z0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
 
-if [[ "${WEATHER_MAIN}" = *Snow* ]]; then
-  echo "${ICON_SNOW} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo "${ICON_SNOW} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo "$(getcolor i3.block.fgrnd)"
-elif [[ "${WEATHER_MAIN}" = *Rain* ]] || [[ "${WEATHER_MAIN}" = *Drizzle* ]]; then
-  echo "${ICON_RAINY} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo "${ICON_RAINY} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo "$(getcolor i3.block.fgrnd)"
-elif [[ "${WEATHER_MAIN}" = *Cloud* ]]; then
-  echo "${ICON_CLOUDY} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo "${ICON_CLOUDY} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo "$(getcolor i3.block.fgrnd)"
-elif [[ "${WEATHER_MAIN}" = *Clear* ]]; then
-  if [[ "${WEATHER_ICON}" = *01n* ]]; then
-    echo "${ICON_NIGHT} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-    echo "${ICON_NIGHT} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-    echo "$(getcolor i3.block.fgrnd)"
-  else
-    echo "${ICON_SUNNY} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-    echo "${ICON_SUNNY} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-    echo "$(getcolor i3.block.fgrnd)"
-  fi
-elif [[ "${WEATHER_MAIN}" = *Fog* ]] || [[ "${WEATHER_MAIN}" = *Mist* ]]; then
-  echo "${ICON_FOG} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo "${ICON_FOG} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo "$(getcolor i3.block.fgrnd)"
-else
-  echo "${WEATHER_MAIN} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo "${WEATHER_MAIN} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-  echo "$(getcolor i3.block.fgrnd)"
-fi
+case ${WEATHER_CODE} in
+  6*)     ICON=${ICON_SNOW} ;; # snow
+  3*|5*)  ICON=${ICON_RAINY} ;; # rain, drizzle
+  800*) # clear
+    case ${WEATHER_ICON} in
+      01n)  ICON=${ICON_NIGHT} ;; # night
+      *)    ICON=${ICON_SUNNY} ;; # day
+    esac ;; 
+  80*)    ICON=${ICON_CLOUDY} ;; # cloudy
+  7*)     ICON=${ICON_FOG} ;; # fog
+  2*)     ICON=${ICON_STORM} ;; # storm
+  9*)     ICON=${WEATHER_MAIN} ;; # extreme
+  *)      ICON="?" # probably no internet
+esac
+
+echo "${ICON} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
+echo "${ICON} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
+echo "$(getcolor i3.block.fgrnd)"
 
 if [[ "${WEATHER_TEMP}" -lt "${URGENT_LOWER}" ]] || [[ "${WEATHER_TEMP}" -gt "${URGENT_HIGHER}" ]]; then
   exit 33
