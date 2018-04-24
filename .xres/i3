@@ -10,7 +10,7 @@ i3.fntsec:          fnt2
 !! i3 block
 i3.block.fgrnd:     cyn
 i3.block.inact:     blu2
-i3.block.title:     grn
+i3.block.title:     fg
 
 !! i3 block battery
 i3.block.batt.1:    cyn
