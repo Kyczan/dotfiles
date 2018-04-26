@@ -1,4 +1,3 @@
 #!/bin/bash
 
-urxvtc -e sh -c "sudo pacman -Syu ; echo Done - Press enter to exit; read"
-i3-msg -q 'exec --no-startup-id pkill -SIGRTMIN+13 i3blocks' # send signal to i3blocks
+urxvtc -e sh -c "sudo pacman -Syu ; i3-msg -q 'exec --no-startup-id pkill -SIGRTMIN+13 i3blocks' ; echo Done - Press enter to exit; read"
