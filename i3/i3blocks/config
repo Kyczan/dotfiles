@@ -2,6 +2,7 @@
 
 # Global properties
 command=~/.config/i3/i3blocks/blocks/$BLOCK_NAME
+separator=false
 separator_block_width=20
 markup=none
 
@@ -37,10 +38,10 @@ interval=1
 # [stopwatch]
 # interval=1
 
-[keyindicator]
-instance=NUM
-interval=once
-signal=11
+# [keyindicator]
+# instance=NUM
+# interval=once
+# signal=11
 
 [packages]
 interval=300

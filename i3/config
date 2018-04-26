@@ -36,10 +36,11 @@ set $workspace10    "10: Spotify "
 set_from_resource   $fnt1 i3.fntpri System San Francisco Display
 set_from_resource   $fnt2 i3.fntsec FontAwesome
 set_from_resource   $fntsz i3.fntsz 8
-set_from_resource   $bg i3.bgrnd #282A36
-set_from_resource   $fg i3.fgrnd #FFFFFF
-set_from_resource   $in i3.inact #676E7D
-set_from_resource   $ur i3.urgen #E53935
+set_from_resource   $bg i3.bgrnd #282A36    # background
+set_from_resource   $fg i3.fgrnd #FFFFFF    # foreground
+set_from_resource   $in i3.inact #676E7D    # inactive
+set_from_resource   $ur i3.urgen #E53935    # urgent
+set_from_resource   $tr i3.trans FF         # transparency
 
 # ------------------------------------------------------------
 # ----------------------look and feel-------------------------
@@ -68,15 +69,17 @@ client.urgent           $ur    $ur     $fg  $ur
 # status bar
 bar {
     status_command  i3blocks -c $i3dir/i3blocks/config
+    i3bar_command   i3bar -t
     font            pango:$fnt1,$fnt2 $fntsz
     position        top
+    height          26
     colors {
-        background  $bg
+        background  $bg$tr
         separator   $in
-        #                  border bground text
-        focused_workspace  $bg    $bg     $fg
-        inactive_workspace $bg    $bg     $in
-        urgent_workspace   $bg    $bg     $ur
+        #                  border   bground   text
+        focused_workspace  $bg$tr   $bg$tr    $fg
+        inactive_workspace $bg$tr   $bg$tr    $in
+        urgent_workspace   $bg$tr   $bg$tr    $ur
     }
 }
 
@@ -250,7 +253,7 @@ $exe_always pkill -SIGRTMIN+10 i3blocks # send volume signal to i3blocks
 $exe_always feh --bg-scale ~/Pictures/wallpaper.png # set wallpaper
 
 # run on i3 startup
-#$exe compton -b --config $i3dir/compton/compton.conf
+# $exe compton -b --config $i3dir/compton/compton.conf
 $exe chromium
 $exe synclient VertScrollDelta=-114 # enable natural vertical scroling
 $exe synclient HorizScrollDelta=-114 # enable natural horizontal scroling
