@@ -4,7 +4,7 @@
 DOTS=~/Projects/dotfiles
 
 # install lot of apps
-sudo pacman -S --needed --noconfirm curl gvim rofi i3blocks feh lxappearance pulseaudio playerctl compton acpi scrot numlockx chromium ranger w3m zsh
+sudo pacman -S --needed --noconfirm curl gvim rofi i3blocks feh lxappearance pulseaudio playerctl compton acpi scrot numlockx chromium ranger w3m zsh bat exa
 
 # install yaourt
 cd ~

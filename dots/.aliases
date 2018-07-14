@@ -27,6 +27,9 @@ function gacmp () {
   gs
 }
 
+#ls
+alias l="exa -la"
+
 # cd
 alias cl="clear"
 alias cdd="cd ~/Projects/dotfiles/"

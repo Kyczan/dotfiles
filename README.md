@@ -42,6 +42,7 @@ To run properly i3-gaps based on this configuration you have to install followin
 * `chromium`
 * `code` (AUR; nice editor for programmers)
 * `spotify` (AUR), before installing add following gpg keys:
+* `exa` for colored `ls` output
 ```
 gpg --recv-keys --keyserver hkp://pgp.mit.edu D9C4D26D0E604491
 gpg --recv-keys 5CC908FDB71E12C2
