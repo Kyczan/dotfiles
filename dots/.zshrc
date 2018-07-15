@@ -6,6 +6,7 @@ export PATH
 export MY_EDITOR="code-oss"
 export MY_EDITOR_CLASS="Code"
 export DOTS="$HOME/Projects/dotfiles"
+export VISUAL="vim"
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/kowal/.oh-my-zsh

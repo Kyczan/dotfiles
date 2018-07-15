@@ -59,6 +59,7 @@ new_window none
 # gaps
 gaps inner 15
 gaps outer 0
+smart_gaps on
 
 # window colors         border bground text indicator
 client.focused          $bg    $bg     $fg  $bg
