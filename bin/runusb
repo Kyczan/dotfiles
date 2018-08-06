@@ -1,6 +1,6 @@
 #!/bin/bash
 
-usb=$(printf "mount\\nunmount" | rofi -dmenu -mesg "What to do?")
+usb=$(printf "mount\\nunmount" | rofi -dmenu -p "What to do?")
 
 if [[ "${usb}" == "mount" ]]; then
   usbmount
