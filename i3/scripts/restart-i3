@@ -2,4 +2,5 @@
 
 . $HOME/.zshrc
 xrdb $HOME/.Xresources
+killall dunst
 i3-msg restart
