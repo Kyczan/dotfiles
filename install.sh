@@ -51,6 +51,10 @@ sudo ln -s $DOTS/urxvt/pasta /usr/lib/urxvt/perl/
 # symlink all files from dots/
 ln -s $DOTS/dots/.* ~/
 
+# symlink dunst
+rm -rf ~/.config/dunst
+ln -s $DOTS/dunst ~/.config
+
 # install pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
