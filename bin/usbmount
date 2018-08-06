@@ -1,0 +1,10 @@
+#!/bin/bash
+
+COLS="name,type,size,mountpoint"
+
+drives="$(lsblk -rpo "$COLS" | awk '$2=="disk"&&$4==""&&!/sda/{printf "%s (%s)\n",$1,$3}')"
+[ -z "$drives" ] && exit 1
+chosen="$(echo "$drives" | rofi -dmenu -mesg "mount which drive?" | awk '{print $1}')"
+[ -z "$chosen" ] && exit 1
+notify=$(udisksctl mount -b "$chosen")
+notify-send "$notify"

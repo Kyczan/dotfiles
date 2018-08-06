@@ -216,6 +216,9 @@ $super+u $exe runupdates
 # run network applet
 $super+n $exe runnetwork
 
+# mount/unmount usb drive
+$super+m $exe runusb
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume    $exe pactl set-sink-volume  @DEFAULT_SINK@ +5% #increase sound volume
 bindsym XF86AudioLowerVolume    $exe pactl set-sink-volume  @DEFAULT_SINK@ -5% #decrease sound volume
@@ -252,6 +255,7 @@ $exe_always compton -f # for nice transitions
 $exe_always pkill -SIGRTMIN+11 i3blocks # send numlock signal to i3blocks
 $exe_always pkill -SIGRTMIN+10 i3blocks # send volume signal to i3blocks
 $exe_always feh --bg-scale ~/Pictures/wallpaper.png # set wallpaper
+$exe_always dunst -config ~/.config/dunst/dunstrc
 
 # run on i3 startup
 # $exe compton -b --config $i3dir/compton/compton.conf
