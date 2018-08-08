@@ -4,10 +4,23 @@ BATTERY_INFO=$(acpi -b | grep "Battery ${BLOCK_INSTANCE}")
 BATTERY_STATE=$(echo "${BATTERY_INFO}" | grep -wo "Full\|Charging\|Discharging")
 BATTERY_POWER=$(echo "${BATTERY_INFO}" | grep -o '[0-9]\+%' | tr -d '%')
 LABEL=
-
 URGENT_VALUE=5
+CACHE_FULL=~/.cache/i3blocks/battery_full
+CACHE_LOW=~/.cache/i3blocks/battery_low
 
 if [[ "${BATTERY_STATE}" = "Charging" || "${BATTERY_STATE}" = "Full" ]]; then
+
+	if [ -f $CACHE_LOW ]; then
+		rm $CACHE_LOW
+	fi
+
+	if [[ "${BATTERY_POWER}" = "100" ]]; then
+		if [ ! -f $CACHE_FULL ]; then
+			notify-send "Battery" "Battery is full." -i /usr/share/icons/Paper/32x32/devices/battery.png
+			touch $CACHE_FULL
+		fi
+	fi
+
   echo "${LABEL} ${BATTERY_POWER}% "
   echo "${LABEL} ${BATTERY_POWER}% "
 	echo "$(getcolor i3.block.fgrnd)"
@@ -18,8 +31,18 @@ fi
 
 if [[ "${BATTERY_STATE}" = "Discharging" ]]; then
 
+	if [ -f $CACHE_FULL ]; then
+		rm $CACHE_FULL
+	fi
+
   if [[ "${BATTERY_POWER}" -lt "20" ]]; then 
  		echo "$(getcolor i3.block.batt.5)";
+
+		if [ ! -f $CACHE_LOW ]; then
+			notify-send "Battery" "Battery is low." -i /usr/share/icons/Paper/32x32/devices/battery.png -u CRITICAL
+			touch $CACHE_LOW
+		fi
+
 	elif [[ "${BATTERY_POWER}" -lt "40" ]]; then
 		echo "$(getcolor i3.block.batt.4)";
 	elif [[ "${BATTERY_POWER}" -lt "60" ]]; then
