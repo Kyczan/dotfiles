@@ -7,4 +7,4 @@ drives="$(lsblk -rpo "$COLS" | awk '$2=="disk"&&$4==""&&!/sda/{printf "%s (%s)\n
 chosen="$(echo "$drives" | rofi -dmenu -p "Mount which drive?" | awk '{print $1}')"
 [ -z "$chosen" ] && exit 1
 notify=$(udisksctl mount -b "$chosen")
-notify-send "$notify"
+notify-send "USB" "$notify" -i /usr/share/icons/Paper/32x32/devices/drive-harddisk-usb.png
