@@ -7,6 +7,7 @@ LABEL=
 URGENT_VALUE=5
 CACHE_FULL=~/.cache/i3blocks/battery_full
 CACHE_LOW=~/.cache/i3blocks/battery_low
+ICON=/usr/share/icons/Paper/32x32/devices/battery.png
 
 if [[ "${BATTERY_STATE}" = "Charging" || "${BATTERY_STATE}" = "Full" ]]; then
 
@@ -16,7 +17,7 @@ if [[ "${BATTERY_STATE}" = "Charging" || "${BATTERY_STATE}" = "Full" ]]; then
 
 	if [[ "${BATTERY_POWER}" = "100" ]]; then
 		if [ ! -f $CACHE_FULL ]; then
-			notify-send "Battery" "Battery is full." -i /usr/share/icons/Paper/32x32/devices/battery.png
+			notify-send "Battery" "Battery is full." -i $ICON
 			touch $CACHE_FULL
 		fi
 	fi
@@ -39,7 +40,7 @@ if [[ "${BATTERY_STATE}" = "Discharging" ]]; then
  		echo "$(getcolor i3.block.batt.5)";
 
 		if [ ! -f $CACHE_LOW ]; then
-			notify-send "Battery" "Battery is low." -i /usr/share/icons/Paper/32x32/devices/battery.png -u CRITICAL
+			notify-send "Battery" "Battery is low." -i $ICON -u CRITICAL
 			touch $CACHE_LOW
 		fi
 
