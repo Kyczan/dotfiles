@@ -65,7 +65,7 @@ ln -s $DOTS/i3 ~/.config
 
 ### weather
 
-Make account on openweathermap.org and obtain API key. Then rename `api.cfg.template` to `api.cfg` and update this file with your API key.
+Make account on openweathermap.org and obtain API key. Then rename `weather.cfg.example` to `weather.cfg` and update this file with your API key.
 
 ## dots symlinks
 
