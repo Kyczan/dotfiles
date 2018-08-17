@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ICON=/usr/share/icons/Paper/32x32/devices/input-tablet.png
+
 # Toggle the touchpad on/off.
 
 # Get the id number of the touchpad.
@@ -12,12 +14,12 @@ if [ $tp_enabled = 0 ]
 then
   # The touchpad is currently disabled, so turn it on.
   xinput set-prop $tp_id "Device Enabled" 1
-  echo "Touchpad now on."
+  notify-send "Touchpad" "Device is now <b>ON</b>" -i $ICON
 elif [ $tp_enabled = 1 ]
 then
   # The touchpad is currently enabled, so turn it off.
   xinput set-prop $tp_id "Device Enabled" 0
-  echo "Touchpad now off."
+  notify-send "Touchpad" "Device is now <b>OFF</b>" -i $ICON
 else
   echo "tp_toggle: Could not get touchpad status from xinput."
   exit 1
