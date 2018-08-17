@@ -1,6 +1,10 @@
 #!/bin/bash
 
+ICON=/usr/share/icons/Paper/32x32/actions/system-reboot.png
+
 . $HOME/.zshrc
 xrdb $HOME/.Xresources
 killall dunst
 i3-msg restart
+
+notify-send 'Restart' 'Desktop env restarted' -i $ICON
