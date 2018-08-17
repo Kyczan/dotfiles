@@ -21,6 +21,6 @@ then
   xinput set-prop $tp_id "Device Enabled" 0
   notify-send "Touchpad" "Device is now <b>OFF</b>" -i $ICON
 else
-  echo "tp_toggle: Could not get touchpad status from xinput."
+  notify-send "Touchpad" "Unknown state of device" -i $ICON -u CRITICAL
   exit 1
 fi
