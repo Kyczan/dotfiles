@@ -1,3 +1,10 @@
 #!/bin/bash
 
-urxvtc -e sh -c "sudo pacman -Syu ; i3-msg -q 'exec --no-startup-id pkill -SIGRTMIN+13 i3blocks' ; echo Done - Press enter to exit; read"
+ICON=/usr/share/icons/Paper/32x32/status/software-update-available.png
+
+update="sudo pacman -Syu ;"
+notifyi3="i3-msg -q 'exec --no-startup-id pkill -SIGRTMIN+13 i3blocks' ;"
+notifysend="notify-send 'System update' 'Done!' -i $ICON ;"
+msg="echo Done - Press enter to exit; read"
+
+urxvtc -e sh -c "$update $notifyi3 $notifysend $msg"
