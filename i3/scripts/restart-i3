@@ -7,4 +7,4 @@ xrdb $HOME/.Xresources
 killall dunst
 i3-msg restart
 
-notify-send 'Restart' 'Desktop env restarted' -i $ICON
+notify-send 'Restart i3' 'Desktop env restarted' -i $ICON
