@@ -1,7 +1,7 @@
 
 !! Urxvt settings
-URxvt*font:                     xft:fnt3:pixelsize=fsz3
-URxvt*boldFont:                 xft:fnt3:pixelsize=fsz3:weight=bold
+URxvt*font:                     xft:fnt3:pixelsize=fsz3:minspace=False, xft:fnt2:pixelsize=fsz3
+URxvt*boldFont:                 xft:fnt3:pixelsize=fsz3:minspace=False:weight=bold, xft:FontAwesome:pixelsize=fsz3
 URxvt*letterSpace:              -1
 URxvt*cursorBlink:              1
 URxvt*scrollBar:                false
