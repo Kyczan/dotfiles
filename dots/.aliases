@@ -31,10 +31,11 @@ function gacmp () {
 alias l="exa -la"
 
 # cd
-alias cl="clear"
-alias cdd="cd ~/Projects/dotfiles/"
+alias clr="clear"
+alias cdd="cd ~/Projects/dotfiles/ && l"
+alias cdp="cd ~/Projects/ && l"
 
-function cdl () {
+function cl () {
   cd "$@" && l
 }
 
