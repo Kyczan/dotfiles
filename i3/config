@@ -115,7 +115,7 @@ $super+Shift+0 move container to workspace $workspace10
 
 # open some apps on specified workspaces
 for_window [class="Chromium"]   move to workspace $workspace1
-for_window [class="Code"]       move to workspace $workspace2 focus
+for_window [class="code"]       move to workspace $workspace2 focus
 for_window [class="Spotify"]    move to workspace $workspace10
 
 # resize window (you can also use the mouse for that)

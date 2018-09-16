@@ -3,8 +3,8 @@ PATH="$HOME/bin:$PATH"
 export PATH
 
 # My variables
-export MY_EDITOR="code-oss"
-export MY_EDITOR_CLASS="Code"
+export MY_EDITOR="code"
+export MY_EDITOR_CLASS="code"
 export DOTS="$HOME/Projects/dotfiles"
 export VISUAL="vim"
 export SUDO_ASKPASS=~/bin/password

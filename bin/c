@@ -2,5 +2,5 @@
 
 # runs Editor and focuses into it
 
-$MY_EDITOR $1
+($MY_EDITOR $1 &) &> /dev/null
 focuseditor
