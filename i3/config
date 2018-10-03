@@ -114,7 +114,7 @@ $super+Shift+9 move container to workspace $workspace9
 $super+Shift+0 move container to workspace $workspace10
 
 # open some apps on specified workspaces
-for_window [class="Chromium"]   move to workspace $workspace1
+for_window [class="Vivaldi"]   move to workspace $workspace1
 for_window [class="code"]       move to workspace $workspace2 focus
 for_window [class="Spotify"]    move to workspace $workspace10
 
@@ -247,7 +247,7 @@ $exe_always dunst -config ~/.config/dunst/dunstrc
 
 # run on i3 startup
 # $exe compton -b --config $i3dir/compton/compton.conf
-$exe chromium
+$exe vivaldi-stable
 $exe synclient VertScrollDelta=-114 # enable natural vertical scroling
 $exe synclient HorizScrollDelta=-114 # enable natural horizontal scroling
 $exe xss-lock -- ~/.config/i3/scripts/lockme # lock screen on suspend

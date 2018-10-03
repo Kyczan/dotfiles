@@ -3,15 +3,15 @@
 my configuration dotfiles
 
 - [dotfiles](#dotfiles)
-    - [i3-gaps](#i3-gaps)
-    - [i3 scripts](#i3-scripts)
-        - [weather](#weather)
-    - [dots symlinks](#dots-symlinks)
-    - [dunst](#dunst)
-    - [ranger](#ranger)
-    - [urxvt](#urxvt)
-    - [.xres](#xres)
-    - [.vimrc](#vimrc)
+  - [i3-gaps](#i3-gaps)
+  - [i3 scripts](#i3-scripts)
+    - [weather](#weather)
+  - [dots symlinks](#dots-symlinks)
+  - [dunst](#dunst)
+  - [ranger](#ranger)
+  - [urxvt](#urxvt)
+  - [.xres](#xres)
+  - [.vimrc](#vimrc)
 
 ![My desktop](/scrots/desktop.png)
 
@@ -32,8 +32,6 @@ To run properly i3-gaps based on this configuration you have to install followin
 - `paper-gtk-theme-git`, `paper-icon-theme-git` (AUR; Paper System Theme - nice theme)
 - `lxappearance` (for changing system font and theme; change font in `~/.gtkrc-2.0` and in `~/.config/gtk-3.0/settings.ini`)
 - `urxvt` terminal
-- `zsh`
-- `oh-my-zsh` ([installation instructions](https://github.com/robbyrussell/oh-my-zsh); in `~/.zshrc` set `ZSH_THEME="bira"`)
 - `pulseaudio` (for audio control)
 - `playerctl` (also for audio control)
 - `imagemagick` (AUR; for converting images to set them as lock screen)
@@ -75,10 +73,9 @@ Symlink all files from `dots/` to `~/`
 ln -s $DOTS/dots/.* ~/
 ```
 
-Then reload `.zshrc` and `.Xresources`:
+Then reload `.Xresources`:
 
 ```
-source ~/.zshrc
 source ~/.Xresources
 ```
 

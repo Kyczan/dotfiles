@@ -4,7 +4,7 @@
 DOTS=~/Projects/dotfiles
 
 # install lot of apps
-sudo pacman -S --needed --noconfirm curl gvim rofi i3blocks feh lxappearance pulseaudio playerctl compton acpi scrot numlockx chromium ranger w3m zsh bat exa dunst
+sudo pacman -S --needed --noconfirm curl gvim rofi i3blocks feh lxappearance pulseaudio playerctl compton acpi scrot numlockx chromium ranger w3m bat exa dunst
 
 # install yaourt
 cd ~
@@ -20,9 +20,6 @@ sudo rm -dR yaourt/ package-query/
 
 # create dir for screenshots
 mkdir ~/Pictures/screenshots
-
-# install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # add gpg keys needed by spotify
 gpg --recv-keys --keyserver hkp://pgp.mit.edu D9C4D26D0E604491
@@ -64,12 +61,6 @@ git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 
 # install NERDTree
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
-
-# install zsh syntax highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-# need to activate plugin in ~/.zshrc
-# plugins=( [plugins...] zsh-syntax-highlighting)
-# source ~/.zshrc
 
 echo "Done-Press enter"
 read
