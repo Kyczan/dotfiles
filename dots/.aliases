@@ -44,6 +44,7 @@ alias v="vim"
 alias p="pacman"
 alias y="yaourt"
 alias r="ranger"
+alias rm="rimraf"
 
 # ssh
 alias sshpi="ssh pi@pihole"
