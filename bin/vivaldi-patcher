@@ -26,13 +26,17 @@ for dir in $vivaldi_installs ; do
 	echo $dir": "$count ;
 	((count++)) ;
 done
-read -p "
-Select installation to patch.
-Input number and press [Enter] or [X] to cancel.
-Input selection: " selected ;
-if [ "$selected" = "X" ] ; then 
-	exit ;
+
+if [ $count -gt 2 ] ; then 
+  read -p "
+  Select installation to patch.
+  Input number and press [Enter] or [X] to cancel.
+  Input selection: " selected ;
+  if [ "$selected" = "X" ] ; then 
+    exit ;
+  fi
 fi
+
 ((selected--)) ;
 if [ $selected -ge ${#vivaldi_install_dirs[@]} ] ; then
     echo "Selection too large!"
