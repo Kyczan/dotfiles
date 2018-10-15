@@ -41,7 +41,7 @@ To run properly i3-gaps based on this configuration you have to install followin
 - `xss-lock-git` (AUR; for locking screen after suspend. To suspend after closing lid, go to `/etc/systemd/logind.conf`, uncomment `HandleLidSwitch=suspend`)
 - `numlockx` (for turning on numlock on start)
 - `ranger` `w3m` (console based file manager)
-- `chromium`
+- `vivaldi` (To use Netflix install from AUR `vivaldi-widevine` and `vivaldi-ffmpeg-codecs`)
 - `code` (AUR; nice editor for programmers)
 - `spotify` (AUR), before installing add following gpg keys:
 - `exa` for colored `ls` output
