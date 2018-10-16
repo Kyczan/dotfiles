@@ -52,7 +52,7 @@ gpg --recv-keys --keyserver hkp://pgp.mit.edu D9C4D26D0E604491
 gpg --recv-keys 5CC908FDB71E12C2
 ```
 
-It is worth to male symlink from repo to i3 config folder (assuming that i3 config is in `~/.config/i3`):
+It is worth to make symlink from repo to i3 config folder (assuming that i3 config is in `~/.config/i3`):
 
 ```
 rm -rf ~/.config/i3
