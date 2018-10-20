@@ -46,6 +46,7 @@ To run properly i3-gaps based on this configuration you have to install followin
 - `spotify` (AUR), before installing add following gpg keys:
 - `exa` for colored `ls` output
 - `dunst` for display notifications
+- `youtube-dl` best [YT downloader](https://github.com/rg3/youtube-dl/)
 
 ```
 gpg --recv-keys --keyserver hkp://pgp.mit.edu D9C4D26D0E604491
