@@ -21,10 +21,10 @@ set $up             k
 set $down           j
 
 set $workspace1     "1: WWW "
-set $workspace2     "2: VS Code " 
-set $workspace3     "3: Terminals " 
-set $workspace4     "4: Ranger "
-set $workspace5     "5"
+set $workspace2     "2: Signal "
+set $workspace3     "3: VS Code "
+set $workspace4     "4: Terminals "
+set $workspace5     "5: FileZilla "
 set $workspace6     "6"
 set $workspace7     "7"
 set $workspace8     "8"
@@ -114,8 +114,9 @@ $super+Shift+9 move container to workspace $workspace9
 $super+Shift+0 move container to workspace $workspace10
 
 # open some apps on specified workspaces
-for_window [class="Vivaldi"]   move to workspace $workspace1
-for_window [class="code"]       move to workspace $workspace2 focus
+for_window [class="Vivaldi"]    move to workspace $workspace1
+for_window [class="Signal"]     move to workspace $workspace2
+for_window [class="code"]       move to workspace $workspace3 focus
 for_window [class="Spotify"]    move to workspace $workspace10
 
 # resize window (you can also use the mouse for that)
@@ -248,6 +249,7 @@ $exe_always dunst -config ~/.config/dunst/dunstrc
 # run on i3 startup
 # $exe compton -b --config $i3dir/compton/compton.conf
 $exe vivaldi-stable
+$exe signal-desktop
 $exe synclient VertScrollDelta=-114 # enable natural vertical scroling
 $exe synclient HorizScrollDelta=-114 # enable natural horizontal scroling
 $exe xss-lock -- ~/.config/i3/scripts/lockme # lock screen on suspend
