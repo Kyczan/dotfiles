@@ -13,7 +13,7 @@ my configuration dotfiles
   - [.xres](#xres)
   - [.vimrc](#vimrc)
 
-![My desktop](/scrots/desktop.png)
+![My desktop](./scrots/desktop.png)
 
 `install.sh` installs below applications and does some configuration. Use it without any warranty!
 
