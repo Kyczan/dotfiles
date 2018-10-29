@@ -49,14 +49,14 @@ To run properly i3-gaps based on this configuration you have to install followin
 - `youtube-dl` best [YT downloader](https://github.com/rg3/youtube-dl/)
 - `signal` (AUR) secure [messenger](https://signal.org)
 
-```
+```sh
 gpg --recv-keys --keyserver hkp://pgp.mit.edu D9C4D26D0E604491
 gpg --recv-keys 5CC908FDB71E12C2
 ```
 
 It is worth to make symlink from repo to i3 config folder (assuming that i3 config is in `~/.config/i3`):
 
-```
+```sh
 rm -rf ~/.config/i3
 ln -s $DOTS/i3 ~/.config
 ```
@@ -71,13 +71,13 @@ Make account on openweathermap.org and obtain API key. Then rename `weather.cfg.
 
 Symlink all files from `dots/` to `~/`
 
-```
+```sh
 ln -s $DOTS/dots/.* ~/
 ```
 
 Then reload `.Xresources`:
 
-```
+```sh
 source ~/.Xresources
 ```
 
@@ -85,7 +85,7 @@ source ~/.Xresources
 
 Create symlink:
 
-```
+```sh
 rm -rf ~/.config/dunst
 ln -s $DOTS/dunst ~/.config
 ```
@@ -94,7 +94,7 @@ ln -s $DOTS/dunst ~/.config
 
 Create symlink:
 
-```
+```sh
 rm -rf ~/.config/ranger
 ln -s $DOTS/ranger ~/.config
 ```
@@ -103,7 +103,7 @@ ln -s $DOTS/ranger ~/.config
 
 To get to work normal copy-paste in terminal create symlink:
 
-```
+```sh
 sudo ln -s $DOTS/urxvt/pasta /usr/lib/urxvt/perl/
 ```
 
@@ -111,7 +111,7 @@ sudo ln -s $DOTS/urxvt/pasta /usr/lib/urxvt/perl/
 
 To get to work `.xres` create symlink:
 
-```
+```sh
 ln -s $DOTS/.xres ~/
 ```
 
