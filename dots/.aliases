@@ -42,7 +42,7 @@ function cl () {
 # others
 alias v="vim"
 alias p="pacman"
-alias y="yaourt"
+alias y="yay"
 alias r="ranger"
 alias rm="rimraf"
 

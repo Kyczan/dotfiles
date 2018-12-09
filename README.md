@@ -21,7 +21,7 @@ my configuration dotfiles
 
 To run properly i3-gaps based on this configuration you have to install following programs:
 
-- `yaourt` ([installation instructions](https://www.ostechnix.com/install-yaourt-arch-linux/); for installing AUR packages)
+- `yay` ([installation instructions](https://computingforgeeks.com/yay-best-aur-helper-for-arch-linux-manjaro/); for installing AUR packages)
 - `i3-gaps` fork of `i3` (AUR) ([installation instructions](https://github.com/Airblader/i3))
 - `rofi` (for searching and launching apps)
 - `i3blocks` (for bar with custom informations)

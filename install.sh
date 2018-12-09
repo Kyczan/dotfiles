@@ -6,17 +6,13 @@ DOTS=~/Projects/dotfiles
 # install lot of apps
 sudo pacman -S --needed --noconfirm curl gvim rofi i3blocks feh lxappearance pulseaudio playerctl compton acpi scrot numlockx vivaldi ranger w3m bat exa dunst youtube-dl
 
-# install yaourt
+# install yay
 cd ~
-git clone https://aur.archlinux.org/package-query.git
-cd package-query/
+git clone https://aur.archlinux.org/yay.git
+cd yay
 makepkg -si
 cd ..
-git clone https://aur.archlinux.org/yaourt.git
-cd yaourt/
-makepkg -si
-cd ..
-sudo rm -dR yaourt/ package-query/
+sudo rm -rf yay
 
 # create dir for screenshots
 mkdir ~/Pictures/screenshots
@@ -26,7 +22,7 @@ gpg --recv-keys --keyserver hkp://pgp.mit.edu D9C4D26D0E604491
 gpg --recv-keys 5CC908FDB71E12C2
 
 # install AUR packages
-yaourt -S i3-gaps i3lock-color-git system-san-francisco-font-git ttf-ms-fonts ttf-font-awesome-4 paper-gtk-theme-git paper-icon-theme-git imagemagick xss-lock-git code spotify vivaldi-widevine vivaldi-ffmpeg-codecs signal
+yay -S i3-gaps i3lock-color-git system-san-francisco-font-git ttf-ms-fonts ttf-font-awesome-4 paper-gtk-theme-git paper-icon-theme-git imagemagick xss-lock-git code spotify vivaldi-widevine vivaldi-ffmpeg-codecs signal
 
 # symlink i3
 rm -rf ~/.config/i3
