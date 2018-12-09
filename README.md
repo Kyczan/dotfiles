@@ -1,21 +1,22 @@
-# dotfiles
+# dotfiles <!-- omit in toc -->
 
-my configuration dotfiles
-
-- [dotfiles](#dotfiles)
-  - [i3-gaps](#i3-gaps)
-  - [i3 scripts](#i3-scripts)
-    - [weather](#weather)
-  - [dots symlinks](#dots-symlinks)
-  - [dunst](#dunst)
-  - [ranger](#ranger)
-  - [urxvt](#urxvt)
-  - [.xres](#xres)
-  - [.vimrc](#vimrc)
+My Arch configuration files
 
 ![My desktop](./scrots/desktop.png)
 
 `install.sh` installs below applications and does some configuration. Use it without any warranty!
+
+## TOC <!-- omit in toc -->
+
+- [i3-gaps](#i3-gaps)
+- [i3 scripts](#i3-scripts)
+  - [weather](#weather)
+- [dots symlinks](#dots-symlinks)
+- [dunst](#dunst)
+- [ranger](#ranger)
+- [urxvt](#urxvt)
+- [.xres](#xres)
+- [.vimrc](#vimrc)
 
 ## i3-gaps
 
