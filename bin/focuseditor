@@ -1,5 +1,0 @@
-#! /bin/bash
-
-# focus on editor window
-
-i3-msg -q '[class="'"$MY_EDITOR_CLASS"'"] focus'
