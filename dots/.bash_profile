@@ -3,6 +3,7 @@
 # Profile file. Runs on login.
 
 export PATH="$HOME/bin:$PATH"
+export XDG_CONFIG_HOME="$HOME/.config"
 # My variables
 export MY_EDITOR="code"
 export DOTS="$HOME/Projects/dotfiles"

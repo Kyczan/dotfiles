@@ -2,7 +2,7 @@
 
 ICON=/usr/share/icons/Paper/32x32/actions/system-reboot.png
 
-. $HOME/.zshrc
+. $HOME/.bash_profile
 xrdb $HOME/.Xresources
 killall dunst
 i3-msg restart
