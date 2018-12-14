@@ -12,6 +12,9 @@ min_width=800
 align=center
 separator=false
 
+[memory]
+interval=5
+
 [volume]
 instance=Master
 interval=once

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+used_mem=$(free | awk '/^Mem:/ {print int($3 / $2 * 100 + 0.5)}');
+label=""
+
+echo "${label} ${used_mem}%"
+echo "${label} ${used_mem}%"
+echo "$(getcolor i3.block.fgrnd)"
+
+if [[ ${used_mem} -gt 90 ]]; then
+  exit 33
+fi
