@@ -6,7 +6,8 @@
 ##############################################
 
 if [ $UID != 0 ] ; then
-    echo "Please use 'sudo' or log in as root."
+    echo "Enabling root for script."
+    sudo -A vivaldi-patcher
     exit 255
 fi
 
