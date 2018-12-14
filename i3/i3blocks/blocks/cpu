@@ -1,0 +1,16 @@
+#!/bin/bash
+
+case $BLOCK_BUTTON in
+  1) cpu-processes
+esac
+
+used_cpu=$(ps -A -o pcpu | tail -n+2 | paste -sd+ | bc | awk '{print int($1 + 0.5)}');
+label=""
+
+echo "${label} ${used_cpu}%"
+echo "${label} ${used_cpu}%"
+echo "$(getcolor i3.block.fgrnd)"
+
+if [[ ${used_cpu} -gt 90 ]]; then
+  exit 33
+fi

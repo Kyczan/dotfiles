@@ -12,6 +12,9 @@ min_width=800
 align=center
 separator=false
 
+[cpu]
+interval=5
+
 [memory]
 interval=5
 
