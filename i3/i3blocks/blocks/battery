@@ -7,7 +7,7 @@ LABEL=
 URGENT_VALUE=5
 CACHE_FULL=~/.cache/i3blocks/battery_full
 CACHE_LOW=~/.cache/i3blocks/battery_low
-ICON=/usr/share/icons/Paper/32x32/devices/battery.png
+ICON=$DOTS/dunst/icons/battery.png
 
 if [[ "${BATTERY_STATE}" = "Charging" || "${BATTERY_STATE}" = "Full" ]]; then
 

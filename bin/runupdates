@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ICON=/usr/share/icons/Paper/32x32/status/software-update-available.png
+ICON=$DOTS/dunst/icons/software-update-available.png
 
 update="yay ;"
 notifyi3="i3-msg -q 'exec --no-startup-id pkill -SIGRTMIN+13 i3blocks' ;"

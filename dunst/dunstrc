@@ -167,7 +167,7 @@
     max_icon_size = 32
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Paper/32x32/status/:/usr/share/icons/Paper/32x32/devices/
+    icon_path = ./icons/
 
     ### History ###
 
