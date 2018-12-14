@@ -46,6 +46,7 @@ To run properly i3-gaps based on this configuration you have to install followin
 - `code` (AUR; nice editor for programmers)
 - `spotify` (AUR), before installing add following gpg keys:
 - `exa` for colored `ls` output
+- `sysstat` to get CPU load
 - `dunst` for display notifications
 - `youtube-dl` best [YT downloader](https://github.com/rg3/youtube-dl/)
 - `signal` (AUR) secure [messenger](https://signal.org)

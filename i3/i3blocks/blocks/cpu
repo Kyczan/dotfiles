@@ -4,13 +4,17 @@ case $BLOCK_BUTTON in
   1) cpu-processes
 esac
 
-used_cpu=$(ps -A -o pcpu | tail -n+2 | paste -sd+ | bc | awk '{print int($1 + 0.5)}');
+used_cpu_arr=($(mpstat 2 1 -P ALL | awk '$1 ~ /Average/ && $2 ~ /[0-9]+/ {print int(100 - $12 + 0.5)}'));
 label=""
 
-echo "${label} ${used_cpu}%"
-echo "${label} ${used_cpu}%"
+echo "${label} [${used_cpu_arr[@]}]%"
+echo "${label} [${used_cpu_arr[@]}]%"
 echo "$(getcolor i3.block.fgrnd)"
 
-if [[ ${used_cpu} -gt 90 ]]; then
-  exit 33
-fi
+# Alarm if one of cores is on heavy load
+for i in "${used_cpu_arr[@]}"
+do
+  if [[ $i -gt 90 ]]; then
+    exit 33
+  fi
+done
