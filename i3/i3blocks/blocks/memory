@@ -1,5 +1,9 @@
 #!/bin/bash
 
+case $BLOCK_BUTTON in
+  1) memory-processes
+esac
+
 used_mem=$(free | awk '/^Mem:/ {print int($3 / $2 * 100 + 0.5)}');
 label=""
 
