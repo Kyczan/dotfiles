@@ -1,13 +1,15 @@
 #!/bin/bash
 
+. $DOTS/i3/scripts/get-color
+
 B='#00000000'  # blank
-VI=$(getcolor ylw)'22'  # veryfying inside
-WI=$(getcolor red)'22'  # wrong inside
-D=$(getcolor wht)'FF'  # default
-T=$(getcolor wht)'FF'  # text
-W=$(getcolor red)'FF'  # wrong
-V=$(getcolor ylw)'FF'  # verifying
-H=$(getcolor grn)'FF'  # hlring
+VI=$(get-color ylw)'22'  # veryfying inside
+WI=$(get-color red)'22'  # wrong inside
+D=$(get-color wht)'FF'  # default
+T=$(get-color wht)'FF'  # text
+W=$(get-color red)'FF'  # wrong
+V=$(get-color ylw)'FF'  # verifying
+H=$(get-color grn)'FF'  # hlring
 
 i3lock \
 --insidevercolor=$VI  \
