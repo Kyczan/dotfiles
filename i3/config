@@ -200,13 +200,13 @@ $super+a focus parent
 $super+Shift+a focus child
 
 # run updates
-$super+u $exe runupdates
+$super+u $exe $i3dir/scripts/run-updates
 
 # run network applet
-$super+n $exe runnetwork
+$super+n $exe $i3dir/scripts/run-network
 
 # mount/unmount usb drive
-$super+m $exe runusb
+$super+m $exe $i3dir/scripts/run-usb
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume    $exe pactl set-sink-volume  @DEFAULT_SINK@ +5% #increase sound volume
