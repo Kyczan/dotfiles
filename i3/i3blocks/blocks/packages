@@ -1,19 +1,19 @@
 #!/usr/bin/bash
 
-URGENT_VALUE=5
-PACKAGE_COUNT=$(/usr/bin/checkupdates | wc -l)
-LABEL=""
+. $DOTS/i3/scripts/set-label
+
+urgent_value=5
+package_count=$(/usr/bin/checkupdates | wc -l)
+label=" ${package_count}"
 
 # update on left click
 case $BLOCK_BUTTON in
   1) $DOTS/i3/scripts/run-updates 
 esac
 
-if [[ "${PACKAGE_COUNT}" -gt 0 ]]; then
-  echo "${LABEL} ${PACKAGE_COUNT}" # full-text
-  echo "${LABEL} ${PACKAGE_COUNT}" # short-text
-  echo "$(getcolor i3.block.fgrnd)"
-  if [[ "${PACKAGE_COUNT}" -gt "${URGENT_VALUE}" ]]; then
+if [[ "${package_count}" -gt 0 ]]; then
+  set-label "$label" i3.block.fgrnd
+  if [[ "${package_count}" -gt "${urgent_value}" ]]; then
     exit 33
   fi
 else

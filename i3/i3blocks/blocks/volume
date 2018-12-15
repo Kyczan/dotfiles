@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. $DOTS/i3/scripts/set-label
+
 case $BLOCK_BUTTON in
   3) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;  # right click, mute/unmute
   5) pactl set-sink-volume @DEFAULT_SINK@ +5% ;; # scroll up, increase
@@ -9,17 +11,13 @@ esac
 statusLine=$(amixer get Master | tail -n 1)
 status=$(echo "${statusLine}" | grep -wo "on")
 volume=$(echo "${statusLine}" | awk -F ' ' '{print $5}' | tr -d '[]%')
-label=♪
+label="♪ ${volume}%"
 
 if [[ "${status}" == "on" ]]; then
-  echo "${label} ${volume}%"
-  echo "${label} ${volume}%"
-  echo "$(getcolor i3.block.fgrnd)"
+  set-label "$label" i3.block.fgrnd
   if [[ ${volume} -gt 100 ]]; then
     exit 33
   fi
 else
-  echo "MUTE"
-  echo "MUTE"
-  echo "$(getcolor i3.block.inact)"
+  set-label MUTE i3.block.inact
 fi

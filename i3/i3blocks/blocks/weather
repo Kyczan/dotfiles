@@ -1,53 +1,53 @@
 #!/bin/bash
 # Based on http://openweathermap.org/current
 
+. $DOTS/i3/scripts/set-label
+
 # Get API key from cfg file
 . $HOME/.config/i3/i3blocks/blocks/weather.cfg
-API_KEY="${OPENWEATHER_API_KEY}"
+api_key="${OPENWEATHER_API_KEY}"
 
 # Check on http://openweathermap.org/find
-CITY_ID="${BLOCK_INSTANCE}"
+city_id="${BLOCK_INSTANCE}"
 
-URGENT_LOWER=0
-URGENT_HIGHER=30
+urgent_low=0
+urgent_high=30
 
-ICON_SUNNY=""
-ICON_CLOUDY=""
-ICON_RAINY=""
-ICON_STORM=""
-ICON_SNOW=""
-ICON_FOG=""
-ICON_NIGHT=""
+icon_sun=""
+icon_cloud=""
+icon_rain=""
+icon_storm=""
+icon_snow=""
+icon_fog=""
+icon_night=""
 
-SYMBOL_CELSIUS="℃"
+celsius="℃"
 
-WEATHER_URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&appid=${API_KEY}&units=metric"
+weather_url="http://api.openweathermap.org/data/2.5/weather?id=${city_id}&appid=${api_key}&units=metric"
 
-WEATHER_INFO=$(wget -qO- "${WEATHER_URL}")
-WEATHER_MAIN=$(echo "${WEATHER_INFO}" | grep -o -e '\"main\":\"[a-Z]*\"' | awk -F ':' '{print $2}' | tr -d '"')
-WEATHER_CODE=$(echo "${WEATHER_INFO}" | grep -o -e '\"id\":[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
-WEATHER_TEMP=$(echo "${WEATHER_INFO}" | grep -o -e '\"temp\":\-\?[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
-WEATHER_ICON=$(echo "${WEATHER_INFO}" | grep -o -e '\"icon\":\"[a-zA-Z0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
+weather_info=$(wget -qO- "${weather_url}")
+weather_main=$(echo "${weather_info}" | grep -o -e '\"main\":\"[a-Z]*\"' | awk -F ':' '{print $2}' | tr -d '"')
+weather_code=$(echo "${weather_info}" | grep -o -e '\"id\":[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
+weather_temp=$(echo "${weather_info}" | grep -o -e '\"temp\":\-\?[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
+weather_icon=$(echo "${weather_info}" | grep -o -e '\"icon\":\"[a-zA-Z0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
 
-case ${WEATHER_CODE} in
-  6*)     ICON=${ICON_SNOW} ;; # snow
-  3*|5*)  ICON=${ICON_RAINY} ;; # rain, drizzle
+case ${weather_code} in
+  6*)     icon=${icon_snow} ;; # snow
+  3*|5*)  icon=${icon_rain} ;; # rain, drizzle
   800*) # clear
-    case ${WEATHER_ICON} in
-      01n)  ICON=${ICON_NIGHT} ;; # night
-      *)    ICON=${ICON_SUNNY} ;; # day
+    case ${weather_icon} in
+      01n)  icon=${icon_night} ;; # night
+      *)    icon=${icon_sun} ;; # day
     esac ;; 
-  80*)    ICON=${ICON_CLOUDY} ;; # cloudy
-  7*)     ICON=${ICON_FOG} ;; # fog
-  2*)     ICON=${ICON_STORM} ;; # storm
-  9*)     ICON=${WEATHER_MAIN} ;; # extreme
-  *)      ICON="?" # probably no internet
+  80*)    icon=${icon_cloud} ;; # cloudy
+  7*)     icon=${icon_fog} ;; # fog
+  2*)     icon=${icon_storm} ;; # storm
+  9*)     icon=${weather_main} ;; # extreme
+  *)      icon="?" # probably no internet
 esac
 
-echo "${ICON} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-echo "${ICON} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
-echo "$(getcolor i3.block.fgrnd)"
+set-label "${icon} ${weather_temp}${celsius}" i3.block.fgrnd
 
-if [[ "${WEATHER_TEMP}" -lt "${URGENT_LOWER}" ]] || [[ "${WEATHER_TEMP}" -gt "${URGENT_HIGHER}" ]]; then
+if [[ "${weather_temp}" -lt "${urgent_low}" ]] || [[ "${weather_temp}" -gt "${urgent_high}" ]]; then
   exit 33
 fi

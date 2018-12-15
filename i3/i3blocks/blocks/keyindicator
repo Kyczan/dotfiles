@@ -1,25 +1,24 @@
 #!/bin/bash
 
-TYPE="${BLOCK_INSTANCE:-CAPS}"
+. $DOTS/i3/scripts/set-label
 
+type="${BLOCK_INSTANCE:-CAPS}"
 lockLine=$(xset -q | grep "Num Lock")
 
 capsLock=$(echo "${lockLine}" | awk -F ' ' '{print $4}')
 numLock=$(echo "${lockLine}" | awk -F ' ' '{print $8}')
 scrollLock=$(echo "${lockLine}" | awk -F ' ' '{print $12}')
 
-if [[ "${TYPE}" == "CAPS" ]]; then
+if [[ "${type}" == "CAPS" ]]; then
   checkLock="${capsLock}"
-elif [[ "${TYPE}" == "NUM" ]]; then
+elif [[ "${type}" == "NUM" ]]; then
   checkLock="${numLock}"
-elif [[ "${TYPE}" == "SCROLL" ]]; then
+elif [[ "${type}" == "SCROLL" ]]; then
   checkLock="${scrollLock}"
 else
   exit
 fi
 
 if [[ "${checkLock}" == "on" ]]; then
-  echo "${TYPE}"
-  echo "${TYPE}"
-  echo "$(getcolor i3.block.fgrnd)"
+  set-label "$type" i3.block.fgrnd
 fi

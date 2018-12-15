@@ -1,60 +1,57 @@
 #!/bin/bash
 
-BATTERY_INFO=$(acpi -b | grep "Battery ${BLOCK_INSTANCE}")
-BATTERY_STATE=$(echo "${BATTERY_INFO}" | grep -wo "Full\|Charging\|Discharging")
-BATTERY_POWER=$(echo "${BATTERY_INFO}" | grep -o '[0-9]\+%' | tr -d '%')
-LABEL=
-URGENT_VALUE=5
-CACHE_FULL=~/.cache/i3blocks/battery_full
-CACHE_LOW=~/.cache/i3blocks/battery_low
-ICON=$DOTS/dunst/icons/battery.png
+. $DOTS/i3/scripts/set-label
 
-if [[ "${BATTERY_STATE}" = "Charging" || "${BATTERY_STATE}" = "Full" ]]; then
+battery_info=$(acpi -b | grep "Battery ${BLOCK_INSTANCE}")
+battery_state=$(echo "${battery_info}" | grep -wo "Full\|Charging\|Discharging")
+battery_power=$(echo "${battery_info}" | grep -o '[0-9]\+%' | tr -d '%')
+label=" ${battery_power}%"
+urgent_value=5
+cache_full=~/.cache/i3blocks/battery_full
+cache_low=~/.cache/i3blocks/battery_low
+icon=$DOTS/dunst/icons/battery.png
 
-	if [ -f $CACHE_LOW ]; then
-		rm $CACHE_LOW
+if [[ "${battery_state}" = "Charging" || "${battery_state}" = "Full" ]]; then
+
+	if [ -f $cache_low ]; then
+		rm $cache_low
 	fi
 
-	if [[ "${BATTERY_POWER}" = "100" ]]; then
-		if [ ! -f $CACHE_FULL ]; then
-			notify-send "Battery" "Battery is full." -i $ICON
-			touch $CACHE_FULL
+	if [[ "${battery_power}" = "100" ]]; then
+		if [ ! -f $cache_full ]; then
+			notify-send "Battery" "Battery is full." -i $icon
+			touch $cache_full
 		fi
 	fi
 
-  echo "${LABEL} ${BATTERY_POWER}% "
-  echo "${LABEL} ${BATTERY_POWER}% "
-	echo "$(getcolor i3.block.fgrnd)"
-else
-  echo "${LABEL} ${BATTERY_POWER}%"
-  echo "${LABEL} ${BATTERY_POWER}%"
+	set-label "${label} " i3.block.fgrnd
 fi
 
-if [[ "${BATTERY_STATE}" = "Discharging" ]]; then
+if [[ "${battery_state}" = "Discharging" ]]; then
 
-	if [ -f $CACHE_FULL ]; then
-		rm $CACHE_FULL
+	if [ -f $cache_full ]; then
+		rm $cache_full
 	fi
 
-  if [[ "${BATTERY_POWER}" -lt "20" ]]; then 
- 		echo "$(getcolor i3.block.batt.5)";
+  if [[ "${battery_power}" -lt "20" ]]; then 
+		set-label "$label" i3.block.batt.5
 
-		if [ ! -f $CACHE_LOW ]; then
-			notify-send "Battery" "Battery is low." -i $ICON -u CRITICAL
-			touch $CACHE_LOW
+		if [ ! -f $cache_low ]; then
+			notify-send "Battery" "Battery is low." -i $icon -u CRITICAL
+			touch $cache_low
 		fi
 
-	elif [[ "${BATTERY_POWER}" -lt "40" ]]; then
-		echo "$(getcolor i3.block.batt.4)";
-	elif [[ "${BATTERY_POWER}" -lt "60" ]]; then
-		echo "$(getcolor i3.block.batt.3)";
-	elif [[ "${BATTERY_POWER}" -lt "85" ]]; then
-		echo "$(getcolor i3.block.batt.2)";
-	elif [[ "${BATTERY_POWER}" -ge "85" ]]; then
-		echo "$(getcolor i3.block.batt.1)";
+	elif [[ "${battery_power}" -lt "40" ]]; then
+		set-label "$label" i3.block.batt.4
+	elif [[ "${battery_power}" -lt "60" ]]; then
+		set-label "$label" i3.block.batt.3
+	elif [[ "${battery_power}" -lt "85" ]]; then
+		set-label "$label" i3.block.batt.2
+	elif [[ "${battery_power}" -ge "85" ]]; then
+		set-label "$label" i3.block.batt.1
 	fi
 
-  if [[ "${BATTERY_POWER}" -le "${URGENT_VALUE}" ]]; then
+  if [[ "${battery_power}" -le "${urgent_value}" ]]; then
     exit 33
   fi
 

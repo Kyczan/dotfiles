@@ -1,0 +1,7 @@
+#!/bin/bash
+
+function set-label () {
+  echo "${1}"
+  echo "${1}"
+  echo "$(getcolor ${2})"
+}

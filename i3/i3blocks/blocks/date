@@ -1,7 +1,6 @@
 #!/bin/bash
 
-LABEL=
+. $DOTS/i3/scripts/set-label
 
-echo "${LABEL} $(date '+  %a  %Y-%m-%d')"
-echo "${LABEL} $(date '+  %a  %Y-%m-%d')"
-echo "$(getcolor i3.block.fgrnd)"
+label=" $(date '+  %a  %Y-%m-%d')"
+set-label "$label" i3.block.fgrnd
