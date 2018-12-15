@@ -252,4 +252,4 @@ $exe vivaldi-stable
 $exe signal-desktop
 $exe synclient VertScrollDelta=-114 # enable natural vertical scroling
 $exe synclient HorizScrollDelta=-114 # enable natural horizontal scroling
-$exe xss-lock -- ~/.config/i3/scripts/lockme # lock screen on suspend
+$exe xss-lock -- $i3dir/scripts/lockme # lock screen on suspend
