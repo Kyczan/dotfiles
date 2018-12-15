@@ -205,7 +205,7 @@ $super+u $exe $i3dir/scripts/run-updates
 # run network applet
 $super+n $exe $i3dir/scripts/run-network
 
-# mount/unmount usb drive
+# mount / unmount usb drive
 $super+m $exe $i3dir/scripts/run-usb
 
 # Pulse Audio controls
