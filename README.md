@@ -176,7 +176,9 @@ Shows volume level. Right click mutes. Scrolling on it increases/decreases volum
 
 First make account on [openweathermap.org](https://openweathermap.org) and obtain API key. Then rename `weather.cfg.example` to `weather.cfg` and update this file with your API key.
 
-This block shows actual temperature in desired location with small icon about weather conditions.
+This block shows actual temperature in desired location with small icon about weather conditions. After left click it shows detailed notification.
+
+![weather](./scrots/weather.png)
 
 ## dots symlinks
 
