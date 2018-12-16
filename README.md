@@ -32,7 +32,7 @@ My Arch configuration files
 
 ## installation
 
-To run properly i3 based on this configuration you have to install some programs. `install.sh` installs below applications and does some configuration. But use it on your own risk.
+To get i3 looking like in pictures you have to install some programs. `install.sh` installs below applications and does some configuration. But use it on your own risk.
 
 ### core
 
@@ -86,7 +86,7 @@ ln -s $DOTS/i3 ~/.config
 ### shortcuts
 
 - `super` - win key
-- `h j k l` - directions (left, down, up, right)
+- `h|j|k|l` - directions (left, down, up, right)
 - `super + 0...9` - jump to specify workspace
 - `super + tab` - move to next workspace
 - `super + shift + tab` - move to prev workspace
@@ -95,8 +95,14 @@ ln -s $DOTS/i3 ~/.config
 - `super + shift + c` - reload i3 configuration file
 - `super + shift + r` - restart i3 inplace, reloads profile files
 - `super + p` - open modal window that allows to lock, restart, shutdown, reboot system or restarts i3
+
+  ![power](./scrots/power.png)
+
 - `super + enter` - open terminal
 - `super + d` - open list of apps
+
+  ![rofi](./scrots/rofi.png)
+
 - `super + q` - kill active window
 - `super + h|j|k|l` - change focus to next window
 - `super + shift + h|j|k|l` - move focused window
@@ -111,9 +117,14 @@ ln -s $DOTS/i3 ~/.config
 - `super + u` - check and run updates
 - `super + n` - run network applet
 - `super + m` - mount / unmount usb drive
-- `PrintScreen` - make screenshot and save to `~/Pictures/screenshots/`
+
+  ![usb](./scrots/usb.png)
+
+- `super + PrintScreen` - make screenshot and save to `~/Pictures/screenshots/`
 
 ## i3 blocks
+
+![My blocks](./scrots/blocks.png)
 
 Block definitions are located in `./i3/i3blocks/blocks`
 
@@ -124,6 +135,8 @@ Shows actual state of battery. Changes color accordingly to battery level. Also 
 ### cpu
 
 Shows cpu load for every core. When clicked - shows notification with ten most consuming processes.
+
+![cpu](./scrots/cpu.png)
 
 ### date
 
@@ -136,6 +149,8 @@ Shows info if numlock, capslock or scrolllock is enabled.
 ### memory
 
 Shows memory load. When clicked - shows notification with ten most memory consuming programs.
+
+![memory](./scrots/memory.png)
 
 ### network
 

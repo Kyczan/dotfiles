@@ -208,6 +208,9 @@ $super+n $exe $i3dir/scripts/run-network
 # mount / unmount usb drive
 $super+m $exe $i3dir/scripts/run-usb
 
+# save screenshot
+$super+Print $exe scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume    $exe pactl set-sink-volume  @DEFAULT_SINK@ +5% #increase sound volume
 bindsym XF86AudioLowerVolume    $exe pactl set-sink-volume  @DEFAULT_SINK@ -5% #decrease sound volume
@@ -225,9 +228,6 @@ bindsym XF86AudioPrev   $exe playerctl previous
 
 # toggle touchpad
 bindsym XF86TouchpadToggle $exe $i3dir/scripts/touchpad-toggle
-
-# save screenshot
-bindsym Print $exe scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
 
 # sending signal to i3blocks
 bindsym --release Num_Lock              $exe pkill -SIGRTMIN+11 i3blocks
