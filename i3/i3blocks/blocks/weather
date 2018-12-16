@@ -1,6 +1,11 @@
 #!/bin/bash
 # Based on http://openweathermap.org/current
 
+function read-json {  
+  VALUE=`echo ${1} | grep -o -e  "\"${2}\":\"\?\-\?[a-zA-Z0-9 \.]*\"\?" | awk -F ':' '{print $2}' | tr -d '"'`
+  echo $VALUE ;
+}
+
 . $DOTS/i3/scripts/set-label
 
 # Get API key from cfg file
@@ -22,32 +27,70 @@ icon_fog=""
 icon_night=""
 
 celsius="℃"
+icon_base=$DOTS/dunst/icons/weather-
 
 weather_url="http://api.openweathermap.org/data/2.5/weather?id=${city_id}&appid=${api_key}&units=metric"
 
 weather_info=$(wget -qO- "${weather_url}")
-weather_main=$(echo "${weather_info}" | grep -o -e '\"main\":\"[a-Z]*\"' | awk -F ':' '{print $2}' | tr -d '"')
-weather_code=$(echo "${weather_info}" | grep -o -e '\"id\":[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
-weather_temp=$(echo "${weather_info}" | grep -o -e '\"temp\":\-\?[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
-weather_icon=$(echo "${weather_info}" | grep -o -e '\"icon\":\"[a-zA-Z0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
+weather_main=`read-json "${weather_info}" main`
+description=`read-json "${weather_info}" description`
+weather_code=`read-json "${weather_info}" id`
+temp=`read-json "${weather_info}" temp`
+clouds=`read-json "${weather_info}" all`
+weather_icon=`read-json "${weather_info}" icon`
+humidity=`read-json "${weather_info}" humidity`
+pressure=`read-json "${weather_info}" pressure`
+city=`read-json "${weather_info}" name`
+windms=`read-json "${weather_info}" speed`
+wind=$(echo "scale=1; $windms*3.6" | bc )
+sunrise=`read-json "${weather_info}" sunrise`
+sunset=`read-json "${weather_info}" sunset`
 
 case ${weather_code} in
-  6*)     icon=${icon_snow} ;; # snow
-  3*|5*)  icon=${icon_rain} ;; # rain, drizzle
+  6*) # snow
+    icon=${icon_snow} 
+    color_icon=${icon_base}snow.png ;; 
+  3*|5*) # rain, drizzle
+    icon=${icon_rain} 
+    color_icon=${icon_base}rain.png ;; 
   800*) # clear
     case ${weather_icon} in
       01n)  icon=${icon_night} ;; # night
       *)    icon=${icon_sun} ;; # day
-    esac ;; 
-  80*)    icon=${icon_cloud} ;; # cloudy
-  7*)     icon=${icon_fog} ;; # fog
-  2*)     icon=${icon_storm} ;; # storm
-  9*)     icon=${weather_main} ;; # extreme
-  *)      icon="?" # probably no internet
+    esac 
+    color_icon=${icon_base}clear.png ;; 
+  80*) # cloudy
+    icon=${icon_cloud} 
+    color_icon=${icon_base}cloud.png ;; 
+  7*) # fog
+    icon=${icon_fog} 
+    color_icon=${icon_base}cloud.png ;; 
+  2*) # storm
+    icon=${icon_storm} 
+    color_icon=${icon_base}rain.png ;; 
+  9*) # extreme
+    icon=${weather_main} 
+    color_icon=${icon_base}alert.png ;; 
+  *) # probably no internet
+    icon="?" 
+    color_icon=${icon_base}alert.png 
 esac
 
-set-label "${icon} ${weather_temp}${celsius}" i3.block.fgrnd
+set-label "${icon} ${temp}${celsius}" i3.block.fgrnd
 
-if [[ "${weather_temp}" -lt "${urgent_low}" ]] || [[ "${weather_temp}" -gt "${urgent_high}" ]]; then
+case $BLOCK_BUTTON in
+  1) notify-send "$weather_main" \
+"Description: $description in $city
+Temperature: $temp$celsius
+Clouds: $clouds%
+Humidity: $humidity%
+Pressure: ${pressure}hPa
+Wind: ${wind}km/h
+Sunrise: $(date '+%H:%M' --date=@${sunrise})
+Sunset: $(date '+%H:%M' --date=@${sunset})" \
+-i $color_icon
+esac
+
+if [[ "${temp}" -lt "${urgent_low}" ]] || [[ "${temp}" -gt "${urgent_high}" ]]; then
   exit 33
 fi
