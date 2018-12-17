@@ -1,8 +1,8 @@
 #!/bin/bash
 # Based on http://openweathermap.org/current
 
-function read-json {  
-  VALUE=`echo ${1} | grep -o -e  "\"${2}\":\"\?\-\?[a-zA-Z0-9 \.]*\"\?" | awk -F ':' '{print $2}' | tr -d '"'`
+function parse {
+  VALUE=`node -pe "JSON.parse(process.argv[1]).${2}" "${1}"`
   echo $VALUE ;
 }
 
@@ -31,20 +31,20 @@ icon_base=$DOTS/dunst/icons/weather-
 
 weather_url="http://api.openweathermap.org/data/2.5/weather?id=${city_id}&appid=${api_key}&units=metric"
 
-weather_info=$(wget -qO- "${weather_url}")
-weather_main=`read-json "${weather_info}" main`
-description=`read-json "${weather_info}" description`
-weather_code=`read-json "${weather_info}" id`
-temp=`read-json "${weather_info}" temp`
-clouds=`read-json "${weather_info}" all`
-weather_icon=`read-json "${weather_info}" icon`
-humidity=`read-json "${weather_info}" humidity`
-pressure=`read-json "${weather_info}" pressure`
-city=`read-json "${weather_info}" name`
-windms=`read-json "${weather_info}" speed`
+data=$(wget -qO- "${weather_url}")
+weather_main=`parse "${data}" weather[0].main`
+description=`parse "${data}" weather[0].description`
+weather_code=`parse "${data}" weather[0].id`
+temp=`parse "${data}" main.temp`
+clouds=`parse "${data}" clouds.all`
+weather_icon=`parse "${data}" weather[0].icon`
+humidity=`parse "${data}" main.humidity`
+pressure=`parse "${data}" main.pressure`
+city=`parse "${data}" name`
+windms=`parse "${data}" wind.speed`
 wind=$(echo "scale=1; $windms*3.6" | bc )
-sunrise=`read-json "${weather_info}" sunrise`
-sunset=`read-json "${weather_info}" sunset`
+sunrise=`parse "${data}" sys.sunrise`
+sunset=`parse "${data}" sys.sunset`
 
 case ${weather_code} in
   6*) # snow

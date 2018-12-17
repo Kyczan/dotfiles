@@ -43,6 +43,7 @@ To get i3 looking like in pictures you have to install some programs. `install.s
 - `feh` (for setting wallpaper; put wallpaper to `~/Pictures/wallpaper.jpg`)
 - `i3blocks` (for bar with custom informations)
 - `lxappearance` (for changing system font and theme; change font in `~/.gtkrc-2.0` and in `~/.config/gtk-3.0/settings.ini`)
+- `nodejs`
 - `numlockx` (for turning on numlock on start)
 - `playerctl` (for audio control)
 - `pulseaudio` (for audio control)
