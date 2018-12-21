@@ -153,7 +153,7 @@ $super+p $exe $i3dir/scripts/power-manager
 floating_modifier $mod
 
 # start a terminal
-$super+Return $exe urxvtc
+$super+Return $exe st
 
 # start app menu
 $super+d $exe rofi -modi 'drun#window#run' -show drun

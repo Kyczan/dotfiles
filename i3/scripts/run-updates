@@ -14,4 +14,4 @@ else
   vivaldi_update=""
 fi
 
-urxvtc -e sh -c "$update $notifyi3 $vivaldi_update $notifysend $msg"
+st -e sh -c "$update $notifyi3 $vivaldi_update $notifysend $msg"

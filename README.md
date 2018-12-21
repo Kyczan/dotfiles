@@ -8,6 +8,7 @@ My Arch configuration files
 
 - [installation](#installation)
   - [core](#core)
+  - [from sources](#from-sources)
   - [AUR](#aur)
 - [i3](#i3)
   - [shortcuts](#shortcuts)
@@ -55,9 +56,13 @@ To get i3 looking like in pictures you have to install some programs. `install.s
 - `vivaldi` (To use Netflix install from AUR `vivaldi-widevine` and `vivaldi-ffmpeg-codecs`)
 - `youtube-dl` best [YT downloader](https://github.com/rg3/youtube-dl/)
 
+### from sources
+
+- `st` (simple terminal - [installation instructions](https://github.com/Kyczan/st))
+- `yay` ([installation instructions](https://computingforgeeks.com/yay-best-aur-helper-for-arch-linux-manjaro/); for installing AUR packages)
+
 ### AUR
 
-- `yay` ([installation instructions](https://computingforgeeks.com/yay-best-aur-helper-for-arch-linux-manjaro/); for installing AUR packages)
 - `code` (AUR; nice editor for programmers)
 - `i3-gaps` fork of `i3` (AUR) ([installation instructions](https://github.com/Airblader/i3))
 - `i3lock-color-git` (AUR) (for locking screen)
