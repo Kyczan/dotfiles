@@ -8,6 +8,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+source $HOME/.aliases
+source $HOME/.local/share/icons-in-terminal/icons_bash.sh
+
 #Allows you to cd into directory merely by typing the directory name.
 shopt -s autocd 
 
@@ -58,10 +61,11 @@ function parse_git_dirty {
 	fi
 }
 
+prompt=`echo -e $myicons_arch_linux_arrow`
+
 if [ "$EUID" -ne 0 ]
-	then export PS1="\[\033[38;5;244m\]╭─[\D{%F %T}]\[\e[m\] \[$(tput bold)\]\[\e[36m\]\u\[\e[m\] \[\033[38;5;244m\]in\[\e[m\] \[$(tput bold)\]\[\e[32m\]\w\[\e[m\] \`parse_git_branch\`\n\[\033[38;5;244m\]╰─\[\e[m\]\[\e[36m\]\[$(tput bold)\]\\$\[\e[m\] "
-  else PS1="\[\033[38;5;244m\]╭─[\D{%F %T}]\[\e[m\] \[$(tput bold)\]\[\e[31m\]\u\[\e[m\] \[\033[38;5;244m\]in\[\e[m\] \[$(tput bold)\]\[\e[32m\]\w\[\e[m\] \`parse_git_branch\`\n\[\033[38;5;244m\]╰─\[\e[m\]\[\e[31m\]\[$(tput bold)\]\\$\[\e[m\] "
+	then export PS1="\[\033[38;5;244m\]╭─[\D{%F %T}]\[\e[m\] \[$(tput bold)\]\[\e[36m\]\u\[\e[m\] \[\033[38;5;244m\]in\[\e[m\] \[$(tput bold)\]\[\e[32m\]\w\[\e[m\] \`parse_git_branch\`\n\[\033[38;5;244m\]╰─\[\e[m\]\[\e[36m\]\[$(tput bold)\]$prompt \[\e[m\] "
+  else PS1="\[\033[38;5;244m\]╭─[\D{%F %T}]\[\e[m\] \[$(tput bold)\]\[\e[31m\]\u\[\e[m\] \[\033[38;5;244m\]in\[\e[m\] \[$(tput bold)\]\[\e[32m\]\w\[\e[m\] \`parse_git_branch\`\n\[\033[38;5;244m\]╰─\[\e[m\]\[\e[31m\]\[$(tput bold)\]$prompt \[\e[m\] "
 fi
 
-source $HOME/.aliases
 xrdb -merge $HOME/.Xresources

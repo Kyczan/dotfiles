@@ -66,6 +66,7 @@ To get i3 looking like in pictures you have to install some programs. `install.s
 - `code` (AUR; nice editor for programmers)
 - `i3-gaps` fork of `i3` (AUR) ([installation instructions](https://github.com/Airblader/i3))
 - `i3lock-color-git` (AUR) (for locking screen)
+- `icons-in-terminal` (AUR) (nice glyphicons to use in st terminal)
 - `imagemagick` (AUR; for converting images to set them as lock screen)
 - `paper-gtk-theme-git`, `paper-icon-theme-git` (AUR; Paper System Theme - nice theme)
 - `signal` (AUR) secure [messenger](https://signal.org)
