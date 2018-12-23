@@ -24,11 +24,15 @@ My Arch configuration files
   - [title](#title)
   - [volume](#volume)
   - [weather](#weather)
-- [dots symlinks](#dots-symlinks)
+- [dots](#dots)
+  - [.aliases](#aliases)
+  - [.bash_profile](#bash_profile)
+  - [.bashrc](#bashrc)
+  - [.vimrc](#vimrc)
+  - [.xintrc](#xintrc)
+  - [.Xresources](#xresources)
 - [dunst](#dunst)
 - [ranger](#ranger)
-- [.xres](#xres)
-- [.vimrc](#vimrc)
 
 ## installation
 
@@ -190,7 +194,9 @@ This block shows actual temperature in desired location with small icon about we
 
 ![weather](./scrots/weather.png)
 
-## dots symlinks
+## dots
+
+Dots are files that reside in your home directory and their filenames start from `.` (dot).
 
 Symlink all files from `dots/` to `~/`
 
@@ -202,6 +208,43 @@ Then reload `.Xresources`:
 
 ```sh
 source ~/.Xresources
+```
+
+### .aliases
+
+Contains useful shortcuts.
+
+### .bash_profile
+
+Runs once on logon.
+
+### .bashrc
+
+Runs every time when bash starts (new terminal window is spawn). Loads aliases and creates custom prompt line:
+
+### .vimrc
+
+Config file for Vim.
+
+Install below addons:
+
+- [dracula theme](https://draculatheme.com/vim/)
+- [pathogen](https://github.com/tpope/vim-pathogen) for plugins management.
+- [CtrlP](https://github.com/kien/ctrlp.vim) (for fuzzy search)
+- [NERDTree](https://github.com/scrooloose/nerdtree) (for file tree)
+
+### .xintrc
+
+Runs when X session starts. Loads theme from `.Xresources` and opens i3.
+
+### .Xresources
+
+Defines theme for system. Loads params from `.xres` folder.
+
+To get to work `.xres` create symlink:
+
+```sh
+ln -s $DOTS/.xres ~/
 ```
 
 ## dunst
@@ -221,21 +264,3 @@ Create symlink:
 rm -rf ~/.config/ranger
 ln -s $DOTS/ranger ~/.config
 ```
-
-## .xres
-
-To get to work `.xres` create symlink:
-
-```sh
-ln -s $DOTS/.xres ~/
-```
-
-## .vimrc
-
-Install [dracula theme](https://draculatheme.com/vim/)
-
-Install [pathogen](https://github.com/tpope/vim-pathogen) for plugins management.
-Now you can install:
-
-- [CtrlP](https://github.com/kien/ctrlp.vim) (for fuzzy search)
-- [NERDTree](https://github.com/scrooloose/nerdtree) (for file tree)
