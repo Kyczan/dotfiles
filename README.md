@@ -27,7 +27,6 @@ My Arch configuration files
 - [dots symlinks](#dots-symlinks)
 - [dunst](#dunst)
 - [ranger](#ranger)
-- [urxvt](#urxvt)
 - [.xres](#xres)
 - [.vimrc](#vimrc)
 
@@ -52,7 +51,6 @@ To get i3 looking like in pictures you have to install some programs. `install.s
 - `rofi` (for searching and launching apps)
 - `scrot` (for making screenshots; also create directory `~/Pictures/screenshots`)
 - `sysstat` (to get CPU load)
-- `urxvt` (terminal)
 - `vivaldi` (To use Netflix install from AUR `vivaldi-widevine` and `vivaldi-ffmpeg-codecs`)
 - `xclip` (to manage clipboard)
 - `youtube-dl` best [YT downloader](https://github.com/rg3/youtube-dl/)
@@ -219,14 +217,6 @@ Create symlink:
 ```sh
 rm -rf ~/.config/ranger
 ln -s $DOTS/ranger ~/.config
-```
-
-## urxvt
-
-To get to work normal copy-paste in terminal create symlink:
-
-```sh
-sudo ln -s $DOTS/urxvt/pasta /usr/lib/urxvt/perl/
 ```
 
 ## .xres

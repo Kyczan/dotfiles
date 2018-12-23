@@ -10,6 +10,5 @@
 
 #include </home/kowal/.xres/themes/dracula>
 #include </home/kowal/.xres/color>
-#include </home/kowal/.xres/urxvt>
 #include </home/kowal/.xres/i3>
 #include </home/kowal/.xres/rofi>

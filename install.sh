@@ -38,9 +38,6 @@ ln -s $DOTS/bin ~/
 # symlink xres
 ln -s $DOTS/.xres ~/
 
-# symlink urxvt plugin
-sudo ln -s $DOTS/urxvt/pasta /usr/lib/urxvt/perl/
-
 # symlink all files from dots/
 ln -s $DOTS/dots/.* ~/
 
