@@ -122,7 +122,10 @@ ln -s $DOTS/i3 ~/.config
 - `super + shift + a` - focus child container
 - `super + u` - check and run updates
 - `super + n` - run network applet
-- `super + i` - search for icons
+- `super + i` - search for icons. Selected icon is copied to clipboard
+
+  ![usb](./scrots/icons.png)
+
 - `super + m` - mount / unmount usb drive
 
   ![usb](./scrots/usb.png)
