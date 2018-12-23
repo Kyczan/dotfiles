@@ -2,10 +2,15 @@
 
 . $DOTS/i3/scripts/set-label
 
+# icons from icons-in-terminal
+. $HOME/.local/share/icons-in-terminal/icons_bash.sh
+glyph_power=`echo -e $fa_bolt`
+glyph_plug=`echo -e $oct_plug`
+
 battery_info=$(acpi -b | grep "Battery ${BLOCK_INSTANCE}")
 battery_state=$(echo "${battery_info}" | grep -wo "Full\|Charging\|Discharging")
 battery_power=$(echo "${battery_info}" | grep -o '[0-9]\+%' | tr -d '%')
-label=" ${battery_power}%"
+label="$glyph_power ${battery_power}%"
 urgent_value=5
 cache_full=~/.cache/i3blocks/battery_full
 cache_low=~/.cache/i3blocks/battery_low
@@ -24,7 +29,7 @@ if [[ "${battery_state}" = "Charging" || "${battery_state}" = "Full" ]]; then
 		fi
 	fi
 
-	set-label "${label} " i3.block.fgrnd
+	set-label "${label} $glyph_plug" i3.block.fgrnd
 fi
 
 if [[ "${battery_state}" = "Discharging" ]]; then
