@@ -222,6 +222,8 @@ Runs once on logon.
 
 Runs every time when bash starts (new terminal window is spawn). Loads aliases and creates custom prompt line:
 
+![prompt](./scrots/prompt.png)
+
 ### .vimrc
 
 Config file for Vim.
