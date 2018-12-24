@@ -14,4 +14,4 @@ else
   vivaldi_update=""
 fi
 
-st -e sh -c "$update $notifyi3 $vivaldi_update $notifysend $msg"
+st -e sh -c "$update $vivaldi_update $notifysend $notifyi3 $msg"
