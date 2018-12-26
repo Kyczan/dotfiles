@@ -6,11 +6,11 @@ separator=false
 separator_block_width=20
 markup=none
 
-[title]
-interval=1
-min_width=800
-align=center
-separator=false
+# [title]
+# interval=1
+# min_width=800
+# align=center
+# separator=false
 
 [cpu]
 interval=5
