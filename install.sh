@@ -4,7 +4,7 @@
 DOTS=~/Projects/dotfiles
 
 # install lot of apps
-sudo pacman -S --needed --noconfirm curl gvim rofi i3blocks feh lxappearance pulseaudio playerctl compton acpi scrot numlockx vivaldi ranger w3m bat exa sysstat dunst youtube-dl nodejs xclip
+sudo pacman -S --needed --noconfirm curl gvim rofi i3blocks feh lxappearance pulseaudio playerctl compton acpi scrot numlockx vivaldi ranger w3m bat exa sysstat dunst youtube-dl nodejs xclip ruby
 
 # install yay
 cd ~
@@ -54,6 +54,13 @@ git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 
 # install NERDTree
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+
+# reload bash
+source ~/.bash_profile
+source ~/.bashrc
+
+# install travis
+gem install travis -v 1.8.9 --no-rdoc --no-ri
 
 echo "Done-Press enter"
 read
