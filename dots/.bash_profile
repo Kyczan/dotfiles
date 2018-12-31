@@ -2,7 +2,7 @@
 
 # Profile file. Runs on login.
 
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 export XDG_CONFIG_HOME="$HOME/.config"
 # My variables
 export MY_EDITOR="code"

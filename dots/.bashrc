@@ -70,3 +70,6 @@ if [ "$EUID" -ne 0 ]
 fi
 
 xrdb -merge $HOME/.Xresources
+
+# added by travis gem
+[ -f /home/kowal/.travis/travis.sh ] && source /home/kowal/.travis/travis.sh
