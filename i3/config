@@ -20,16 +20,16 @@ set $right          l
 set $up             k
 set $down           j
 
-set $workspace1     "1: WWW "
-set $workspace2     "2: Signal "
-set $workspace3     "3: VS Code "
-set $workspace4     "4: Terminals "
-set $workspace5     "5: Work "
+set $workspace1     "1 "
+set $workspace2     "2 "
+set $workspace3     "3 "
+set $workspace4     "4 "
+set $workspace5     "5 "
 set $workspace6     "6"
 set $workspace7     "7"
 set $workspace8     "8"
 set $workspace9     "9"
-set $workspace10    "10: Spotify "
+set $workspace10    "10 "
 
 set_from_resource   $fnt1 i3.fntpri System San Francisco Display
 set_from_resource   $fnt2 i3.fntsec FontAwesome
