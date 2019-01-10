@@ -155,7 +155,9 @@ Shows cpu load for every core. When clicked - shows notification with ten most c
 
 ### date
 
-Shows actual date
+Shows actual date. When clicked - shows calendar.
+
+![calendar](./scrots/calendar.png)
 
 ### keyindicator
 
