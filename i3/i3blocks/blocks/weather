@@ -81,6 +81,7 @@ function display-weather-details() {
   glyph_wind=`echo -e $weather_strong_wind`
   glyph_sunrise=`echo -e $weather_sunrise`
   glyph_sunset=`echo -e $weather_sunset`
+  glyph_daytime=`echo -e $md_timelapse`
 
   description=`parse "${data}" weather[0].description`
   clouds=`parse "${data}" clouds.all`
@@ -91,6 +92,7 @@ function display-weather-details() {
   wind=$(echo "scale=1; $windms*3.6" | bc )
   sunrise=`parse "${data}" sys.sunrise`
   sunset=`parse "${data}" sys.sunset`
+  daytime=$(($sunset-$sunrise))
 
   notify_info=`set-font "$description in $city
 $glyph_temp   $temp$celsius
@@ -99,7 +101,8 @@ $glyph_humidity   $humidity%
 $glyph_pressure   ${pressure}hPa
 $glyph_wind  ${wind}km/h
 $glyph_sunrise  $(date '+%H:%M' --date=@${sunrise})
-$glyph_sunset  $(date '+%H:%M' --date=@${sunset})"`
+$glyph_sunset  $(date '+%H:%M' --date=@${sunset})
+$glyph_daytime   $(date '+%H:%M' --date=@${daytime} -u)"`
   
   notify-send "$weather_main" "$notify_info" -i $color_icon
 }
