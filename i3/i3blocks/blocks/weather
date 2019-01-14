@@ -50,10 +50,13 @@ case ${weather_code} in
     color_icon=${icon_base}rain.png ;; 
   800*) # clear
     case ${weather_icon} in
-      01n)  icon=${icon_night} ;; # night
-      *)    icon=${icon_sun} ;; # day
-    esac 
-    color_icon=${icon_base}clear.png ;; 
+      01n) # night
+        icon=${icon_night} 
+        color_icon=${icon_base}moon.png ;; 
+      *) # day
+        icon=${icon_sun} 
+        color_icon=${icon_base}sun.png ;; 
+    esac ;; 
   80*) # cloudy
     icon=${icon_cloud} 
     color_icon=${icon_base}cloud.png ;; 
