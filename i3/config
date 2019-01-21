@@ -254,5 +254,7 @@ $exe_always dunst -config ~/.config/dunst/dunstrc
 $exe vivaldi-stable
 $exe signal-desktop
 $exe synclient VertScrollDelta=-114 # enable natural vertical scroling
+$exe synclient HorizTwoFingerScroll=1 # enable natural horizontal scroling
 $exe synclient HorizScrollDelta=-114 # enable natural horizontal scroling
+$exe synclient TapButton1=1 # enable touchpad tapping
 $exe xss-lock -- $i3dir/scripts/lockme # lock screen on suspend
