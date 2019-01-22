@@ -73,7 +73,6 @@ To get i3 looking like in pictures you have to install some programs. `install.s
 - `icons-in-terminal` (AUR) (nice glyphicons to use in st terminal)
 - `imagemagick` (AUR; for converting images to set them as lock screen)
 - `paper-gtk-theme-git`, `paper-icon-theme-git` (AUR; Paper System Theme - nice theme)
-- `signal` (AUR) secure [messenger](https://signal.org)
 - `spotify` (AUR), before installing add following gpg keys:
 
 ```sh
