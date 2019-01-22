@@ -97,7 +97,7 @@ function display-weather-details() {
   sunset=`parse "${data}" sys.sunset`
   daytime=$(($sunset-$sunrise))
 
-  notify_info=`set-font "$description in $city
+  notify_info=`set-font "$city: $description
 $glyph_temp   $temp$celsius
 $glyph_cloud  $clouds%
 $glyph_humidity   $humidity%
