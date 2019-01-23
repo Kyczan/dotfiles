@@ -1,6 +1,10 @@
 # dotfiles <!-- omit in toc -->
 
-My Arch configuration files
+My Arch configuration files.
+
+**Important!** This project is discontinued. Instead of creating dotfiles folder and symlink files to home directory - use bare git repository. Here is my new approach of maintain [dotfiles](https://github.com/Kyczan/.cfg).
+
+For reference to learn about bare git repo dotfiles see this [article](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).
 
 ![My desktop](./scrots/desktop.png)
 
